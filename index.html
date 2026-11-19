@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Agency — Studio Multi-Agents IA 100% Local & Privé</title>
+    <meta name="description" content="Déployez votre propre studio d'agents IA d'élite en local sur votre PC. 100% privé, sans abonnement, auto-détection du matériel et application mobile Android.">
+    <meta name="theme-color" content="#09090b">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BACKGROUND GLOWS -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-center"></div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="brand-link">
+                <div class="brand-logo-wrap">
+                    <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <span class="brand-badge">v2.0 Local</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="#vision" class="nav-item">Vision</a>
+                <a href="#architecture" class="nav-item">Architecture</a>
+                <a href="#hardware" class="nav-item">Modèles & Matériel</a>
+                <a href="#agents" class="nav-item">Agents & Configurateur</a>
+                <a href="#installation" class="nav-item">Installation</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#installation" class="btn-header-cta">
+                    <span>⚡ Déployer</span>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+
+            <!-- MOBILE MENU TRIGGER -->
+            <button type="button" class="mobile-toggle" id="btnMobileToggle" aria-label="Menu Mobile">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Version 2.0 Publique • 100% Local • Zéro Clé API • Mode Auto Inclus</span>
+            </div>
+
+            <h1 class="hero-title">
+                Votre Studio Multi-Agents IA <br>
+                <span class="text-gradient">Local, Privé et Autonome.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Faites tourner une escouade de <strong>11 agents IA experts</strong> directement sur votre machine. Détection automatique du matériel, sélection intelligente d'agent, bureau Windows autonome et application Android connectée sur votre réseau local.
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="#installation" class="btn-primary-hero">
+                    <span class="cta-icon">📥</span>
+                    <span class="cta-text">
+                        <strong>Installer Jarvis Agency</strong>
+                        <small>Windows (.exe) • 1 Clic • Gratuit</small>
+                    </span>
+                </a>
+                <a href="#agents" class="btn-secondary-hero">
+                    <span class="cta-icon">🎛️</span>
+                    <span class="cta-text">
+                        <strong>Configurateur d'Agents</strong>
+                        <small>Personnaliser votre équipe</small>
+                    </span>
+                </a>
+                <a href="downloads/JarvisAgency.apk" download class="btn-mobile-hero" title="Télécharger l'APK Android">
+                    <span class="cta-icon">📱</span>
+                    <span class="cta-text">
+                        <strong>APK Mobile</strong>
+                        <small>Android v1.0 (90 Ko)</small>
+                    </span>
+                </a>
+            </div>
+
+            <div class="hero-keypoints">
+                <div class="keypoint-item">
+                    <span class="kp-icon">🛡️</span>
+                    <span>100% Souverain & Privé</span>
+                </div>
+                <div class="keypoint-item">
+                    <span class="kp-icon">⚡</span>
+                    <span>Accélération GPU CUDA / CPU</span>
+                </div>
+                <div class="keypoint-item">
+                    <span class="kp-icon">🧠</span>
+                    <span>Mémoire Long Terme SQLite</span>
+                </div>
+                <div class="keypoint-item">
+                    <span class="kp-icon">📶</span>
+                    <span>Accès Mobile Wi-Fi & PWA</span>
+                </div>
+            </div>
+
+            <!-- LIVE INTERACTIVE HERO MOCKUP -->
+            <div class="hero-mockup-wrapper">
+                <div class="mockup-window">
+                    <div class="mockup-topbar">
+                        <div class="window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="mockup-title">Jarvis Agency — Studio Multi-Agents (Mode Auto Actif)</div>
+                        <div class="mockup-status-pill">
+                            <span class="pulse-green"></span>
+                            <span>100% GPU LOCAL • RTX 3070</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-chat-body" id="heroChatBody">
+                        <div class="mockup-msg user">
+                            <div class="msg-avatar-chip">👤</div>
+                            <div class="msg-bubble">
+                                <strong>Consigne utilisateur :</strong> Peux-tu analyser ce fichier de capture Wireshark <code>capture.pcap</code> et vérifier s'il y a une attaque de type ARP spoofing sur le VLAN 10 ?
+                            </div>
+                        </div>
+
+                        <div class="mockup-msg assistant">
+                            <div class="msg-avatar-chip">🌐</div>
+                            <div class="msg-bubble">
+                                <div class="auto-route-badge-demo">
+                                    <span class="bolt">⚡</span>
+                                    <span>Routage Automatique : <strong>NetAdmin</strong> • Réseaux & Systèmes (SISR)</span>
+                                </div>
+                                <p>Analyse de la trame <code>capture.pcap</code> initiée. Détection des adresses MAC et broadcast ARP en cours sur le VLAN 10...</p>
+                                <div class="code-box-preview">
+                                    <div class="code-header"><span>Analyse Wireshark & Tshark</span><span class="code-lang">powershell</span></div>
+                                    <code>tshark -r capture.pcap -Y "arp.duplicate-address-frame" -T fields -e arp.src.proto_ipv4 -e arp.src.hw_mac</code>
+                                </div>
+                                <p class="alert-success">✓ <strong>Diagnostic :</strong> Détection de 2 réponses ARP conflictuelles pour l'IP passerelle <code>192.168.10.1</code>. Recommandation : activer le <strong>Dynamic ARP Inspection (DAI)</strong> sur le switch Cisco.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: ARCHITECTURE & BASE DE CONSTRUCTION -->
+    <section class="section-block" id="architecture">
+        <div class="section-container">
+            <div class="section-head text-center">
+                <div class="subhead-pill">⚙️ Architecture Technique</div>
+                <h2 class="section-title">Comment Jarvis Agency est construit</h2>
+                <p class="section-desc">Une architecture locale de pointe, pensée pour éliminer les dépendances cloud et garantir des temps de réponse instantanés.</p>
+            </div>
+
+            <div class="arch-grid">
+                <div class="arch-card">
+                    <div class="arch-card-icon">🧠</div>
+                    <h3 class="arch-card-title">Moteur d'Inférence Découplé</h3>
+                    <p class="arch-card-text">
+                        Compatible avec <strong>Ollama</strong> et <strong>Llama.cpp</strong>. Exploite directement les cœurs Tensor NVIDIA (CUDA) ou l'accélération AVX2 des processeurs modernes pour streamer à plus de <strong>60 tokens/seconde</strong> sans envoyer un seul octet sur Internet.
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>Format :</span> GGUF quantifié 4-bit / 8-bit</li>
+                        <li><span>Moteur :</span> Ollama API locale (port 11434)</li>
+                        <li><span>Confidentialité :</span> 100% hors-ligne</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <div class="arch-card-icon">⚡</div>
+                    <h3 class="arch-card-title">Backend Asynchrone FastAPI & SSE</h3>
+                    <p class="arch-card-text">
+                        Noyau Python ultra-rapide gérant le <strong>Server-Sent Events (SSE)</strong>, la mémoire SQLite relationnelle persistante, les sessions multi-onglets, l'analyse de fichiers (PDF, CSV, PCAP, Code) et la télémétrie matérielle en direct (VRAM, Température, GPU Util).
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>Serveur :</span> FastAPI + Uvicorn</li>
+                        <li><span>Mémoire :</span> SQLite Vectoriel + Souvenirs</li>
+                        <li><span>Réseau :</span> Écoute <code>0.0.0.0:9099</code> (LAN ready)</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <div class="arch-card-icon">🖥️</div>
+                    <h3 class="arch-card-title">Client Desktop Windows Autonome</h3>
+                    <p class="arch-card-text">
+                        Packagé avec <strong>PyInstaller</strong> et <strong>PyWebView</strong> en un exécutable standalone de 90 Mo. Zéro installation de Python requise sur la machine de destination : double-cliquez sur <code>JarvisAgency.exe</code> et le serveur démarre en tâche de fond avec interface native.
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>Moteur Web :</span> Microsoft WebView2 (Edge Chromium)</li>
+                        <li><span>Packaging :</span> Single-File .EXE sans installeur</li>
+                        <li><span>Poids :</span> Compact & optimisé</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <div class="arch-card-icon">📱</div>
+                    <h3 class="arch-card-title">Écosystème Mobile Android & PWA</h3>
+                    <p class="arch-card-text">
+                        Accédez à votre IA locale depuis votre smartphone. Application native Android <strong>JarvisAgency.apk</strong> (90 Ko, signée v2/v3) avec mémorisation de l'IP du PC, support du micro vocal et interface responsive optimisée OLED noir.
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>APK :</span> WebView Native matérielle accélérée</li>
+                        <li><span>PWA :</span> Installable en 1 clic via Chrome</li>
+                        <li><span>Connexion :</span> Wi-Fi local avec QR Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: HARDWARE PROFILER & AUTO-TUNING -->
+    <section class="section-block bg-subtle" id="hardware">
+        <div class="section-container">
+            <div class="section-head text-center">
+                <div class="subhead-pill">🎯 N'importe quel PC • Modèle Idéal</div>
+                <h2 class="section-title">Auto-Détection & Sélection du Modèle</h2>
+                <p class="section-desc">Jarvis Agency ne force pas un modèle trop lourd pour votre ordinateur. En fonction de votre carte graphique et de votre mémoire RAM, le modèle le plus adapté est sélectionné automatiquement.</p>
+            </div>
+
+            <!-- INTERACTIVE HARDWARE SIMULATOR -->
+            <div class="hardware-calc-box">
+                <div class="calc-header">
+                    <div class="calc-title">🎛️ Testez votre configuration matérielle :</div>
+                    <div class="calc-subtitle">Choisissez votre équipement pour voir quel modèle sera configuré par défaut.</div>
+                </div>
+
+                <div class="calc-presets-row">
+                    <button type="button" class="preset-btn active" data-preset="mid_gpu">
+                        <span class="p-icon">🎮</span>
+                        <span class="p-label">GPU 8 Go VRAM (ex: RTX 3070 / 4060)</span>
+                    </button>
+                    <button type="button" class="preset-btn" data-preset="high_gpu">
+                        <span class="p-icon">🚀</span>
+                        <span class="p-label">GPU 12-16 Go (ex: RTX 4070 / 3080)</span>
+                    </button>
+                    <button type="button" class="preset-btn" data-preset="low_gpu">
+                        <span class="p-icon">💻</span>
+                        <span class="p-label">GPU 4-6 Go (GTX 1650/1660 / RTX 3050)</span>
+                    </button>
+                    <button type="button" class="preset-btn" data-preset="cpu_only">
+                        <span class="p-icon">🖥️</span>
+                        <span class="p-label">CPU Uniquement (16 Go RAM standard)</span>
+                    </button>
+                </div>
+
+                <div class="calc-result-card" id="calcResultCard">
+                    <div class="result-badge" id="calcTierBadge">OPTIMAL POUR GPU 8GB (RTX 3070 / 4060)</div>
+                    <div class="result-main-grid">
+                        <div class="res-left">
+                            <div class="res-label">Modèle Recommandé :</div>
+                            <div class="res-model-name" id="calcModelName">Llama 3.1 8B Instruct (Q4_K_M)</div>
+                            <div class="res-model-desc" id="calcModelDesc">Excellente logique de code, raisonnement réseau SISR et cybersécurité. S'insère parfaitement dans les 8 Go de VRAM avec 100% de déchargement GPU CUDA.</div>
+                        </div>
+                        <div class="res-stats">
+                            <div class="stat-pill">
+                                <span class="stat-num" id="calcSpeed">55 - 75</span>
+                                <span class="stat-unit">tokens / sec</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-num" id="calcVramUsage">5.2 Go</span>
+                                <span class="stat-unit">VRAM consommée</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-num" id="calcOffload">100% GPU</span>
+                                <span class="stat-unit">Zéro ralentissement CPU</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-command-box">
+                        <div class="cmd-label">Commande d'installation automatique Ollama :</div>
+                        <div class="cmd-row">
+                            <code id="calcCommandText">ollama run llama3.1:8b</code>
+                            <button type="button" class="btn-copy-code" id="btnCopyCalcCmd">📋 Copier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: LES 11 AGENTS & CONFIGURATEUR D'ÉQUIPE -->
+    <section class="section-block" id="agents">
+        <div class="section-container">
+            <div class="section-head text-center">
+                <div class="subhead-pill">👥 Roster d'Élite & Personnalisation</div>
+                <h2 class="section-title">Les 11 Agents Spécialisés</h2>
+                <p class="section-desc">Classés en 5 grandes spécialités. Activez l'ensemble de l'agence ou sélectionnez uniquement les agents dont vous avez besoin pour votre usage.</p>
+            </div>
+
+            <!-- INTERACTIVE TEAM CONFIGURATOR -->
+            <div class="configurator-wrapper">
+                <div class="configurator-controls">
+                    <div class="config-filter-label">Préréglages de profil :</div>
+                    <div class="profile-chips-group">
+                        <button type="button" class="profile-chip active" data-profile="all">Pack Intégral (11 Agents)</button>
+                        <button type="button" class="profile-chip" data-profile="sisr">BTS SIO SISR & Réseau</button>
+                        <button type="button" class="profile-chip" data-profile="cyber">CyberSécurité & Pentest</button>
+                        <button type="button" class="profile-chip" data-profile="dev">Développeur & Architecte</button>
+                        <button type="button" class="profile-chip" data-profile="data">Données & Synthèse</button>
+                    </div>
+                </div>
+
+                <div class="agents-roster-grid" id="agentsRosterGrid">
+                    <!-- CYBERSECURITE -->
+                    <div class="agent-card" data-agent="sentinel" data-category="cyber">
+                        <div class="card-top">
+                            <span class="agent-avatar">🥷</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Sentinel</h4>
+                                <span class="agent-role">Cybersécurité & Pentest</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="sentinel">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Détecte les failles OWASP, audite les règles de pare-feu, durcit Active Directory et analyse les vulnérabilités CVE.</p>
+                        <div class="agent-cat-tag cyber">Cybersécurité & Audit</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="reviewer" data-category="cyber">
+                        <div class="card-top">
+                            <span class="agent-avatar">🛡️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Auditor</h4>
+                                <span class="agent-role">Quality Gate & Code</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="reviewer">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Contrôleur qualité. Audite le code, vérifie la conformité des configurations système et valide chaque étape d'un projet.</p>
+                        <div class="agent-cat-tag cyber">Cybersécurité & Audit</div>
+                    </div>
+
+                    <!-- RESEAUX & SISR -->
+                    <div class="agent-card" data-agent="netadmin" data-category="network_sys">
+                        <div class="card-top">
+                            <span class="agent-avatar">🌐</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">NetAdmin</h4>
+                                <span class="agent-role">Architecte Réseaux & Protocoles</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="netadmin">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Maître des VLANs 802.1Q, sous-réseaux CIDR, routage OSPF, analyse Wireshark, DHCP, DNS et partages Samba/SMB.</p>
+                        <div class="agent-cat-tag network">Réseaux & Systèmes (SISR)</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="devops" data-category="network_sys">
+                        <div class="card-top">
+                            <span class="agent-avatar">⚙️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">DevOps</h4>
+                                <span class="agent-role">SysAdmin & Automation</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="devops">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Administration Windows Server & Linux. Automatisation PowerShell/Bash, services systemctl et maintenance système.</p>
+                        <div class="agent-cat-tag network">Réseaux & Systèmes (SISR)</div>
+                    </div>
+
+                    <!-- DEV & ARCHITECTURE -->
+                    <div class="agent-card" data-agent="coder" data-category="dev_arch">
+                        <div class="card-top">
+                            <span class="agent-avatar">💻</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Developer</h4>
+                                <span class="agent-role">Ingénieur Logiciel</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="coder">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Développe en Python, Bash, JavaScript, FastAPI. Écrit, teste et débugue du code directement exécutable.</p>
+                        <div class="agent-cat-tag dev">Développement & Architecture</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="architect" data-category="dev_arch">
+                        <div class="card-top">
+                            <span class="agent-avatar">🏛️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Architect</h4>
+                                <span class="agent-role">Conception & Schémas</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="architect">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Génère des schémas d'architecture Mermaid, modélise des diagrammes réseau, UML et optimise la scalabilité des systèmes.</p>
+                        <div class="agent-cat-tag dev">Développement & Architecture</div>
+                    </div>
+
+                    <!-- DONNEES & REDACTION -->
+                    <div class="agent-card" data-agent="data_analyst" data-category="data_doc">
+                        <div class="card-top">
+                            <span class="agent-avatar">📊</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Data Analyst</h4>
+                                <span class="agent-role">Données & Métriques</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="data_analyst">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Inspecte les fichiers CSV, Excel, SQLite et logs. Génère des tableaux synthétiques et des analyses statistiques actionnables.</p>
+                        <div class="agent-cat-tag data">Données & Rédaction</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="researcher" data-category="data_doc">
+                        <div class="card-top">
+                            <span class="agent-avatar">🔍</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Researcher</h4>
+                                <span class="agent-role">Documentation & RFC</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="researcher">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Synthèse documentaire approfondie. Explore les spécifications techniques, normes ANSSI, RFC et bases de connaissances.</p>
+                        <div class="agent-cat-tag data">Données & Rédaction</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="writer" data-category="data_doc">
+                        <div class="card-top">
+                            <span class="agent-avatar">✍️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Executive Writer</h4>
+                                <span class="agent-role">Rédaction Professionnelle</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="writer">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Rédige des comptes-rendus de stage, fiches techniques, synthèses exécutives et mémos clairs prêts à l'envoi.</p>
+                        <div class="agent-cat-tag data">Données & Rédaction</div>
+                    </div>
+
+                    <!-- STRATEGIE & VEILLE -->
+                    <div class="agent-card" data-agent="captain" data-category="strategy_web">
+                        <div class="card-top">
+                            <span class="agent-avatar">🎖️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Captain</h4>
+                                <span class="agent-role">Orchestrateur Suprême</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="captain">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Chef de projet. Découpe les objectifs complexes en phases ordonnées et coordonne le travail de l'ensemble de l'équipe.</p>
+                        <div class="agent-cat-tag strategy">Stratégie & Veille</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="web_scout" data-category="strategy_web">
+                        <div class="card-top">
+                            <span class="agent-avatar">📡</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Web Scout</h4>
+                                <span class="agent-role">Recherche & Veille Web</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="web_scout">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Ouvre directement les navigateurs pour consulter la documentation officielle, les dernières CVEs et effectuer de la veille technologique.</p>
+                        <div class="agent-cat-tag strategy">Stratégie & Veille</div>
+                    </div>
+                </div>
+
+                <!-- CONFIG SUMMARY BAR -->
+                <div class="config-summary-bar">
+                    <div class="summary-count">
+                        <span id="activeAgentsCount">11</span> / 11 agents sélectionnés pour votre agence
+                    </div>
+                    <div class="summary-actions">
+                        <button type="button" class="btn-export-config" id="btnExportConfig">
+                            <span>📄</span> Télécharger <code>agents_config.json</code>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: GUIDE D'INSTALLATION DÉPLOYABLE -->
+    <section class="section-block bg-subtle" id="installation">
+        <div class="section-container">
+            <div class="section-head text-center">
+                <div class="subhead-pill">🚀 Déploiement Clé en Main</div>
+                <h2 class="section-title">Prêt à l'emploi en 2 minutes</h2>
+                <p class="section-desc">Installez Jarvis Agency sur n'importe quel ordinateur portable ou fixe sans manipulation complexe.</p>
+            </div>
+
+            <!-- INSTALLATION TABS -->
+            <div class="install-tabs-box">
+                <div class="tabs-nav">
+                    <button type="button" class="tab-btn active" data-tab="win_exe">
+                        <span>🪟</span> Windows (.EXE Autonome)
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="ps_script">
+                        <span>⚡</span> Script 1-Clic (PowerShell)
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="android_apk">
+                        <span>📱</span> Android (.APK & Mobile)
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="docker_dev">
+                        <span>🐧</span> Docker & Linux / Mac
+                    </button>
+                </div>
+
+                <!-- TAB 1: WINDOWS EXE -->
+                <div class="tab-content active" id="tab_win_exe">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>L'option la plus simple pour Windows 10 & 11</h3>
+                            <p>Un exécutable unique compilé qui intègre le serveur FastAPI, l'interface graphique Chromium OLED, Faster-Whisper et SQLite.</p>
+                            
+                            <ol class="step-list">
+                                <li>
+                                    <strong>Étape 1 :</strong> Installez <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> (le moteur d'inférence gratuit).
+                                </li>
+                                <li>
+                                    <strong>Étape 2 :</strong> Téléchargez l'exécutable <code>JarvisAgency.exe</code>.
+                                </li>
+                                <li>
+                                    <strong>Étape 3 :</strong> Double-cliquez pour lancer. Le modèle adapté à votre carte graphique est automatiquement prêt !
+                                </li>
+                            </ol>
+
+                            <div class="download-cta-row">
+                                <a href="https://github.com" class="btn-download-main">
+                                    <span>📥</span> Télécharger JarvisAgency.exe (v2.0)
+                                </a>
+                                <span class="file-meta">92 Mo • 100% Hors-ligne</span>
+                            </div>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Vérification rapide Ollama</span></div>
+                                <pre><code># Vérifiez qu'Ollama est actif sur votre machine :
+curl http://127.0.0.1:11434/api/version
+
+# Téléchargez le modèle par défaut recommandé (Llama 3.1) :
+ollama run llama3.1:8b</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: POWERSHELL 1-CLICK -->
+                <div class="tab-content" id="tab_ps_script">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>Installation 100% Automatisée en 1 commande</h3>
+                            <p>Ce script détecte votre GPU NVIDIA / AMD / Intel, installe les dépendances nécessaires, configure le modèle idéal et lance Jarvis Agency.</p>
+                            
+                            <div class="terminal-copy-card">
+                                <div class="terminal-header"><span>PowerShell (Admin ou Utilisateur)</span></div>
+                                <div class="terminal-body">
+                                    <code>irm https://raw.githubusercontent.com/ayoub/jarvis-agency/main/install.ps1 | iex</code>
+                                    <button type="button" class="btn-copy-code" onclick="navigator.clipboard.writeText('irm https://raw.githubusercontent.com/ayoub/jarvis-agency/main/install.ps1 | iex')">📋 Copier</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Ce que fait le script :</span></div>
+                                <pre><code>[1/4] Détection GPU : Calcul de la VRAM disponible
+[2/4] Vérification Ollama : Téléchargement automatique si absent
+[3/4] Pull du modèle optimal : llama3.1:8b ou phi3:mini
+[4/4] Démarrage immédiat de Jarvis Agency Studio</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: ANDROID APK -->
+                <div class="tab-content" id="tab_android_apk">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>Application Native Android Companion</h3>
+                            <p>Pilotez votre IA locale depuis votre téléphone sur le même réseau Wi-Fi avec micro vocal et mémorisation automatique de l'IP du PC.</p>
+                            
+                            <div class="apk-download-box">
+                                <div class="apk-badge-row">
+                                    <span class="apk-chip">Android 7.0 à 15+</span>
+                                    <span class="apk-chip">Signé v2/v3</span>
+                                    <span class="apk-chip">Taille : 90 Ko</span>
+                                </div>
+                                <a href="downloads/JarvisAgency.apk" download class="btn-download-main">
+                                    <span>📥</span> Télécharger JarvisAgency.apk
+                                </a>
+                            </div>
+
+                            <p class="tab-note">💡 <strong>Option PWA :</strong> Vous pouvez également ouvrir l'adresse locale de votre PC dans Chrome sur Android et choisir <em>« Ajouter à l'écran d'accueil »</em> sans rien installer.</p>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Connexion Wi-Fi Mobile</span></div>
+                                <pre><code># 1. PC et Smartphone sur le même Wi-Fi
+# 2. Ouvrez l'application Android Jarvis Agency
+# 3. Entrez l'IP locale de votre PC (ex: http://192.168.1.35:9099)
+# 4. Connexion immédiate avec reconnaissance vocale !</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: DOCKER / DEV -->
+                <div class="tab-content" id="tab_docker_dev">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>Déploiement pour Développeurs & Linux</h3>
+                            <p>Clonez le dépôt Git pour lancer le backend FastAPI directement dans un environnement virtuel Python ou via conteneur.</p>
+                            
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Commandes Terminal</span></div>
+                                <pre><code>git clone https://github.com/ayoub/jarvis-agency.git
+cd jarvis-agency
+
+python -m venv .venv
+source .venv/bin/activate  # ou .venv\Scripts\activate sur Windows
+pip install -r requirements.txt
+
+# Lancement du serveur sur toutes les interfaces :
+uvicorn backend.server:app --host 0.0.0.0 --port 9099</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Variables d'environnement facultatives</span></div>
+                                <pre><code>OLLAMA_HOST=http://127.0.0.1:11434
+DEFAULT_AGENT=auto
+PORT=9099
+CORS_ORIGINS="*"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-wrap">
+                        <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                    </div>
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <p class="footer-tagline">Studio Multi-Agents IA 100% Local, Privé et Déployable. Conçu avec passion par Ayoub pour la communauté et le BTS SIO SISR.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Projet</h4>
+                        <a href="#vision">Vision</a>
+                        <a href="#architecture">Architecture</a>
+                        <a href="#hardware">Modèles & GPU</a>
+                        <a href="#agents">Agents</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Téléchargements</h4>
+                        <a href="#installation">JarvisAgency.exe</a>
+                        <a href="downloads/JarvisAgency.apk" download>JarvisAgency.apk</a>
+                        <a href="#installation">Script PowerShell</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Open Source</h4>
+                        <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Licence MIT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Jarvis Agency • Open Source sous licence MIT • Vos données restent sur votre ordinateur.</p>
+                <div class="footer-meta-badges">
+                    <span class="badge-mini">⚡ 100% Hors-Ligne</span>
+                    <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
