@@ -1406,3 +1406,199 @@ body {
         flex-direction: column;
     }
 }
+
+/* ==============================================================================
+   MULTI-PAGE ADDITIONS
+============================================================================== */
+
+/* Page courante dans la navigation */
+.nav-item[aria-current="page"] {
+    color: var(--accent-emerald-light);
+    font-weight: 700;
+}
+
+/* Premier bloc d'une page intérieure */
+.page-first {
+    padding-top: 72px;
+    min-height: 60vh;
+}
+
+/* Cartes de l'accueil qui mènent aux pages */
+a.page-link-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-link-go {
+    margin-top: auto;
+    padding-top: 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-emerald-light);
+}
+
+.page-link-card:hover .page-link-go {
+    text-decoration: underline;
+}
+
+/* Page Vision */
+.vision-split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.vision-text {
+    color: var(--text-secondary);
+    max-width: 62ch;
+    margin-top: 16px;
+}
+
+.vision-paths {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vision-paths-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.vision-path {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: border-color 0.15s ease;
+}
+
+.vision-path:hover {
+    border-color: var(--border-hover);
+}
+
+.vision-path span {
+    font-size: 0.8rem;
+    color: var(--accent-emerald-light);
+    white-space: nowrap;
+}
+
+/* Navigation page précédente / suivante */
+.pager {
+    position: relative;
+    z-index: 1;
+    padding: 0 24px 72px;
+}
+
+.pager-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 32px;
+}
+
+.pager-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: border-color 0.15s ease;
+}
+
+.pager-link small {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.pager-link.next {
+    text-align: right;
+    margin-left: auto;
+}
+
+.pager-link:hover {
+    border-color: var(--border-hover);
+}
+
+/* Menu mobile */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 24px 20px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.mobile-nav[hidden] {
+    display: none;
+}
+
+.mobile-nav-item {
+    padding: 12px 4px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-nav-item[aria-current="page"] {
+    color: var(--accent-emerald-light);
+    font-weight: 700;
+}
+
+.mobile-nav-cta {
+    margin-top: 12px;
+    padding: 12px 16px;
+    text-align: center;
+    background: var(--accent-emerald);
+    color: #000;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+}
+
+.mobile-toggle:focus-visible,
+.nav-item:focus-visible,
+.pager-link:focus-visible,
+.vision-path:focus-visible,
+.page-link-card:focus-visible {
+    outline: 2px solid var(--accent-emerald-light);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .mobile-nav:not([hidden]) {
+        display: flex;
+    }
+
+    .header-actions {
+        display: none;
+    }
+
+    .vision-split {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .page-first {
+        padding-top: 48px;
+    }
+}

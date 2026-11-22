@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents & Configurateur — Jarvis Agency</title>
+    <meta name="description" content="Les 11 agents spécialisés de Jarvis Agency et le configurateur d'équipe.">
+    <meta name="theme-color" content="#09090b">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-center"></div>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-link">
+                <div class="brand-logo-wrap">
+                    <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <span class="brand-badge">v2.0 Local</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <a href="vision.html" class="nav-item">Vision</a>
+                <a href="architecture.html" class="nav-item">Architecture</a>
+                <a href="materiel.html" class="nav-item">Modèles & Matériel</a>
+                <a href="agents.html" class="nav-item" aria-current="page">Agents & Configurateur</a>
+                <a href="installation.html" class="nav-item">Installation</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="installation.html" class="btn-header-cta"><span>⚡ Déployer</span></a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+
+            <button type="button" class="mobile-toggle" id="btnMobileToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
+            <a href="vision.html" class="mobile-nav-item">Vision</a>
+                <a href="architecture.html" class="mobile-nav-item">Architecture</a>
+                <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
+                <a href="agents.html" class="mobile-nav-item" aria-current="page">Agents & Configurateur</a>
+                <a href="installation.html" class="mobile-nav-item">Installation</a>
+            <a href="installation.html" class="mobile-nav-cta">⚡ Déployer</a>
+        </nav>
+    </header>
+
+    <main>
+<section class="section-block page-first" id="agents">
+        <div class="section-container">
+            <div class="section-head text-center">
+                <div class="subhead-pill">👥 Roster d'Élite & Personnalisation</div>
+                <h2 class="section-title">Les 11 Agents Spécialisés</h2>
+                <p class="section-desc">Classés en 5 grandes spécialités. Activez l'ensemble de l'agence ou sélectionnez uniquement les agents dont vous avez besoin pour votre usage.</p>
+            </div>
+
+            <!-- INTERACTIVE TEAM CONFIGURATOR -->
+            <div class="configurator-wrapper">
+                <div class="configurator-controls">
+                    <div class="config-filter-label">Préréglages de profil :</div>
+                    <div class="profile-chips-group">
+                        <button type="button" class="profile-chip active" data-profile="all">Pack Intégral (11 Agents)</button>
+                        <button type="button" class="profile-chip" data-profile="sisr">BTS SIO SISR & Réseau</button>
+                        <button type="button" class="profile-chip" data-profile="cyber">CyberSécurité & Pentest</button>
+                        <button type="button" class="profile-chip" data-profile="dev">Développeur & Architecte</button>
+                        <button type="button" class="profile-chip" data-profile="data">Données & Synthèse</button>
+                    </div>
+                </div>
+
+                <div class="agents-roster-grid" id="agentsRosterGrid">
+                    <!-- CYBERSECURITE -->
+                    <div class="agent-card" data-agent="sentinel" data-category="cyber">
+                        <div class="card-top">
+                            <span class="agent-avatar">🥷</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Sentinel</h4>
+                                <span class="agent-role">Cybersécurité & Pentest</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="sentinel">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Détecte les failles OWASP, audite les règles de pare-feu, durcit Active Directory et analyse les vulnérabilités CVE.</p>
+                        <div class="agent-cat-tag cyber">Cybersécurité & Audit</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="reviewer" data-category="cyber">
+                        <div class="card-top">
+                            <span class="agent-avatar">🛡️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Auditor</h4>
+                                <span class="agent-role">Quality Gate & Code</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="reviewer">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Contrôleur qualité. Audite le code, vérifie la conformité des configurations système et valide chaque étape d'un projet.</p>
+                        <div class="agent-cat-tag cyber">Cybersécurité & Audit</div>
+                    </div>
+
+                    <!-- RESEAUX & SISR -->
+                    <div class="agent-card" data-agent="netadmin" data-category="network_sys">
+                        <div class="card-top">
+                            <span class="agent-avatar">🌐</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">NetAdmin</h4>
+                                <span class="agent-role">Architecte Réseaux & Protocoles</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="netadmin">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Maître des VLANs 802.1Q, sous-réseaux CIDR, routage OSPF, analyse Wireshark, DHCP, DNS et partages Samba/SMB.</p>
+                        <div class="agent-cat-tag network">Réseaux & Systèmes (SISR)</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="devops" data-category="network_sys">
+                        <div class="card-top">
+                            <span class="agent-avatar">⚙️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">DevOps</h4>
+                                <span class="agent-role">SysAdmin & Automation</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="devops">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Administration Windows Server & Linux. Automatisation PowerShell/Bash, services systemctl et maintenance système.</p>
+                        <div class="agent-cat-tag network">Réseaux & Systèmes (SISR)</div>
+                    </div>
+
+                    <!-- DEV & ARCHITECTURE -->
+                    <div class="agent-card" data-agent="coder" data-category="dev_arch">
+                        <div class="card-top">
+                            <span class="agent-avatar">💻</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Developer</h4>
+                                <span class="agent-role">Ingénieur Logiciel</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="coder">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Développe en Python, Bash, JavaScript, FastAPI. Écrit, teste et débugue du code directement exécutable.</p>
+                        <div class="agent-cat-tag dev">Développement & Architecture</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="architect" data-category="dev_arch">
+                        <div class="card-top">
+                            <span class="agent-avatar">🏛️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Architect</h4>
+                                <span class="agent-role">Conception & Schémas</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="architect">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Génère des schémas d'architecture Mermaid, modélise des diagrammes réseau, UML et optimise la scalabilité des systèmes.</p>
+                        <div class="agent-cat-tag dev">Développement & Architecture</div>
+                    </div>
+
+                    <!-- DONNEES & REDACTION -->
+                    <div class="agent-card" data-agent="data_analyst" data-category="data_doc">
+                        <div class="card-top">
+                            <span class="agent-avatar">📊</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Data Analyst</h4>
+                                <span class="agent-role">Données & Métriques</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="data_analyst">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Inspecte les fichiers CSV, Excel, SQLite et logs. Génère des tableaux synthétiques et des analyses statistiques actionnables.</p>
+                        <div class="agent-cat-tag data">Données & Rédaction</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="researcher" data-category="data_doc">
+                        <div class="card-top">
+                            <span class="agent-avatar">🔍</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Researcher</h4>
+                                <span class="agent-role">Documentation & RFC</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="researcher">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Synthèse documentaire approfondie. Explore les spécifications techniques, normes ANSSI, RFC et bases de connaissances.</p>
+                        <div class="agent-cat-tag data">Données & Rédaction</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="writer" data-category="data_doc">
+                        <div class="card-top">
+                            <span class="agent-avatar">✍️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Executive Writer</h4>
+                                <span class="agent-role">Rédaction Professionnelle</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="writer">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Rédige des comptes-rendus de stage, fiches techniques, synthèses exécutives et mémos clairs prêts à l'envoi.</p>
+                        <div class="agent-cat-tag data">Données & Rédaction</div>
+                    </div>
+
+                    <!-- STRATEGIE & VEILLE -->
+                    <div class="agent-card" data-agent="captain" data-category="strategy_web">
+                        <div class="card-top">
+                            <span class="agent-avatar">🎖️</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Captain</h4>
+                                <span class="agent-role">Orchestrateur Suprême</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="captain">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Chef de projet. Découpe les objectifs complexes en phases ordonnées et coordonne le travail de l'ensemble de l'équipe.</p>
+                        <div class="agent-cat-tag strategy">Stratégie & Veille</div>
+                    </div>
+
+                    <div class="agent-card" data-agent="web_scout" data-category="strategy_web">
+                        <div class="card-top">
+                            <span class="agent-avatar">📡</span>
+                            <div class="agent-ident">
+                                <h4 class="agent-name">Web Scout</h4>
+                                <span class="agent-role">Recherche & Veille Web</span>
+                            </div>
+                            <label class="agent-toggle-wrap">
+                                <input type="checkbox" class="agent-checkbox" checked data-agent="web_scout">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <p class="agent-description">Ouvre directement les navigateurs pour consulter la documentation officielle, les dernières CVEs et effectuer de la veille technologique.</p>
+                        <div class="agent-cat-tag strategy">Stratégie & Veille</div>
+                    </div>
+                </div>
+
+                <!-- CONFIG SUMMARY BAR -->
+                <div class="config-summary-bar">
+                    <div class="summary-count">
+                        <span id="activeAgentsCount">11</span> / 11 agents sélectionnés pour votre agence
+                    </div>
+                    <div class="summary-actions">
+                        <button type="button" class="btn-export-config" id="btnExportConfig">
+                            <span>📄</span> Télécharger <code>agents_config.json</code>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <nav class="pager" aria-label="Navigation entre les pages">
+        <div class="pager-inner"><a href="materiel.html" class="pager-link prev"><small>Page précédente</small><span>← Modèles & Matériel</span></a><a href="installation.html" class="pager-link next"><small>Page suivante</small><span>Installation →</span></a></div>
+    </nav>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-wrap">
+                        <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                    </div>
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <p class="footer-tagline">Studio Multi-Agents IA 100% Local, Privé et Déployable. Conçu avec passion par Ayoub pour la communauté et le BTS SIO SISR.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Projet</h4>
+                        <a href="vision.html">Vision</a>
+                        <a href="architecture.html">Architecture</a>
+                        <a href="materiel.html">Modèles & GPU</a>
+                        <a href="agents.html">Agents</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Téléchargements</h4>
+                        <a href="installation.html">JarvisAgency.exe</a>
+                        <a href="downloads/JarvisAgency.apk" download>JarvisAgency.apk</a>
+                        <a href="installation.html">Script PowerShell</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Open Source</h4>
+                        <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Licence MIT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Jarvis Agency • Open Source sous licence MIT • Vos données restent sur votre ordinateur.</p>
+                <div class="footer-meta-badges">
+                    <span class="badge-mini">⚡ 100% Hors-Ligne</span>
+                    <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

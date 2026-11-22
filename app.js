@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initInstallationTabs();
     initCopyButtons();
     initHeroDemo();
+    initMobileMenu();
 });
 
 // ------------------------------------------------------------------------------
@@ -317,4 +318,27 @@ function initHeroDemo() {
             chatBody.style.transform = "translateY(0)";
         }, 260);
     }, 7000);
+}
+
+// ------------------------------------------------------------------------------
+// 6. MOBILE MENU
+// ------------------------------------------------------------------------------
+function initMobileMenu() {
+    const toggle = document.getElementById("btnMobileToggle");
+    const menu = document.getElementById("mobileNav");
+    if (!toggle || !menu) return;
+
+    function setOpen(open) {
+        menu.hidden = !open;
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    }
+
+    toggle.addEventListener("click", () => setOpen(menu.hidden));
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !menu.hidden) {
+            setOpen(false);
+            toggle.focus();
+        }
+    });
 }

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture — Jarvis Agency</title>
+    <meta name="description" content="Comment Jarvis Agency est construit : moteur d'inférence Ollama, backend FastAPI, client Windows et application Android.">
+    <meta name="theme-color" content="#09090b">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-center"></div>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-link">
+                <div class="brand-logo-wrap">
+                    <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <span class="brand-badge">v2.0 Local</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <a href="vision.html" class="nav-item">Vision</a>
+                <a href="architecture.html" class="nav-item" aria-current="page">Architecture</a>
+                <a href="materiel.html" class="nav-item">Modèles & Matériel</a>
+                <a href="agents.html" class="nav-item">Agents & Configurateur</a>
+                <a href="installation.html" class="nav-item">Installation</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="installation.html" class="btn-header-cta"><span>⚡ Déployer</span></a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+
+            <button type="button" class="mobile-toggle" id="btnMobileToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
+            <a href="vision.html" class="mobile-nav-item">Vision</a>
+                <a href="architecture.html" class="mobile-nav-item" aria-current="page">Architecture</a>
+                <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
+                <a href="agents.html" class="mobile-nav-item">Agents & Configurateur</a>
+                <a href="installation.html" class="mobile-nav-item">Installation</a>
+            <a href="installation.html" class="mobile-nav-cta">⚡ Déployer</a>
+        </nav>
+    </header>
+
+    <main>
+<section class="section-block page-first" id="architecture">
+        <div class="section-container">
+            <div class="section-head text-center">
+                <div class="subhead-pill">⚙️ Architecture Technique</div>
+                <h2 class="section-title">Comment Jarvis Agency est construit</h2>
+                <p class="section-desc">Une architecture locale de pointe, pensée pour éliminer les dépendances cloud et garantir des temps de réponse instantanés.</p>
+            </div>
+
+            <div class="arch-grid">
+                <div class="arch-card">
+                    <div class="arch-card-icon">🧠</div>
+                    <h3 class="arch-card-title">Moteur d'Inférence Découplé</h3>
+                    <p class="arch-card-text">
+                        Compatible avec <strong>Ollama</strong> et <strong>Llama.cpp</strong>. Exploite directement les cœurs Tensor NVIDIA (CUDA) ou l'accélération AVX2 des processeurs modernes pour streamer à plus de <strong>60 tokens/seconde</strong> sans envoyer un seul octet sur Internet.
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>Format :</span> GGUF quantifié 4-bit / 8-bit</li>
+                        <li><span>Moteur :</span> Ollama API locale (port 11434)</li>
+                        <li><span>Confidentialité :</span> 100% hors-ligne</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <div class="arch-card-icon">⚡</div>
+                    <h3 class="arch-card-title">Backend Asynchrone FastAPI & SSE</h3>
+                    <p class="arch-card-text">
+                        Noyau Python ultra-rapide gérant le <strong>Server-Sent Events (SSE)</strong>, la mémoire SQLite relationnelle persistante, les sessions multi-onglets, l'analyse de fichiers (PDF, CSV, PCAP, Code) et la télémétrie matérielle en direct (VRAM, Température, GPU Util).
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>Serveur :</span> FastAPI + Uvicorn</li>
+                        <li><span>Mémoire :</span> SQLite Vectoriel + Souvenirs</li>
+                        <li><span>Réseau :</span> Écoute <code>0.0.0.0:9099</code> (LAN ready)</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <div class="arch-card-icon">🖥️</div>
+                    <h3 class="arch-card-title">Client Desktop Windows Autonome</h3>
+                    <p class="arch-card-text">
+                        Packagé avec <strong>PyInstaller</strong> et <strong>PyWebView</strong> en un exécutable standalone de 90 Mo. Zéro installation de Python requise sur la machine de destination : double-cliquez sur <code>JarvisAgency.exe</code> et le serveur démarre en tâche de fond avec interface native.
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>Moteur Web :</span> Microsoft WebView2 (Edge Chromium)</li>
+                        <li><span>Packaging :</span> Single-File .EXE sans installeur</li>
+                        <li><span>Poids :</span> Compact & optimisé</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <div class="arch-card-icon">📱</div>
+                    <h3 class="arch-card-title">Écosystème Mobile Android & PWA</h3>
+                    <p class="arch-card-text">
+                        Accédez à votre IA locale depuis votre smartphone. Application native Android <strong>JarvisAgency.apk</strong> (90 Ko, signée v2/v3) avec mémorisation de l'IP du PC, support du micro vocal et interface responsive optimisée OLED noir.
+                    </p>
+                    <ul class="arch-specs">
+                        <li><span>APK :</span> WebView Native matérielle accélérée</li>
+                        <li><span>PWA :</span> Installable en 1 clic via Chrome</li>
+                        <li><span>Connexion :</span> Wi-Fi local avec QR Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <nav class="pager" aria-label="Navigation entre les pages">
+        <div class="pager-inner"><a href="vision.html" class="pager-link prev"><small>Page précédente</small><span>← Vision</span></a><a href="materiel.html" class="pager-link next"><small>Page suivante</small><span>Modèles & Matériel →</span></a></div>
+    </nav>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-wrap">
+                        <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                    </div>
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <p class="footer-tagline">Studio Multi-Agents IA 100% Local, Privé et Déployable. Conçu avec passion par Ayoub pour la communauté et le BTS SIO SISR.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Projet</h4>
+                        <a href="vision.html">Vision</a>
+                        <a href="architecture.html">Architecture</a>
+                        <a href="materiel.html">Modèles & GPU</a>
+                        <a href="agents.html">Agents</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Téléchargements</h4>
+                        <a href="installation.html">JarvisAgency.exe</a>
+                        <a href="downloads/JarvisAgency.apk" download>JarvisAgency.apk</a>
+                        <a href="installation.html">Script PowerShell</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Open Source</h4>
+                        <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Licence MIT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Jarvis Agency • Open Source sous licence MIT • Vos données restent sur votre ordinateur.</p>
+                <div class="footer-meta-badges">
+                    <span class="badge-mini">⚡ 100% Hors-Ligne</span>
+                    <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

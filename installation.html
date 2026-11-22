@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation — Jarvis Agency</title>
+    <meta name="description" content="Installer Jarvis Agency sur Windows, Android, Linux ou Docker.">
+    <meta name="theme-color" content="#09090b">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-center"></div>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-link">
+                <div class="brand-logo-wrap">
+                    <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <span class="brand-badge">v2.0 Local</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <a href="vision.html" class="nav-item">Vision</a>
+                <a href="architecture.html" class="nav-item">Architecture</a>
+                <a href="materiel.html" class="nav-item">Modèles & Matériel</a>
+                <a href="agents.html" class="nav-item">Agents & Configurateur</a>
+                <a href="installation.html" class="nav-item" aria-current="page">Installation</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="installation.html" class="btn-header-cta"><span>⚡ Déployer</span></a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+
+            <button type="button" class="mobile-toggle" id="btnMobileToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
+            <a href="vision.html" class="mobile-nav-item">Vision</a>
+                <a href="architecture.html" class="mobile-nav-item">Architecture</a>
+                <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
+                <a href="agents.html" class="mobile-nav-item">Agents & Configurateur</a>
+                <a href="installation.html" class="mobile-nav-item" aria-current="page">Installation</a>
+            <a href="installation.html" class="mobile-nav-cta">⚡ Déployer</a>
+        </nav>
+    </header>
+
+    <main>
+<section class="section-block page-first" id="installation">
+        <div class="section-container">
+            <div class="section-head text-center">
+                <div class="subhead-pill">🚀 Déploiement Clé en Main</div>
+                <h2 class="section-title">Prêt à l'emploi en 2 minutes</h2>
+                <p class="section-desc">Installez Jarvis Agency sur n'importe quel ordinateur portable ou fixe sans manipulation complexe.</p>
+            </div>
+
+            <!-- INSTALLATION TABS -->
+            <div class="install-tabs-box">
+                <div class="tabs-nav">
+                    <button type="button" class="tab-btn active" data-tab="win_exe">
+                        <span>🪟</span> Windows (.EXE Autonome)
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="ps_script">
+                        <span>⚡</span> Script 1-Clic (PowerShell)
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="android_apk">
+                        <span>📱</span> Android (.APK & Mobile)
+                    </button>
+                    <button type="button" class="tab-btn" data-tab="docker_dev">
+                        <span>🐧</span> Docker & Linux / Mac
+                    </button>
+                </div>
+
+                <!-- TAB 1: WINDOWS EXE -->
+                <div class="tab-content active" id="tab_win_exe">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>L'option la plus simple pour Windows 10 & 11</h3>
+                            <p>Un exécutable unique compilé qui intègre le serveur FastAPI, l'interface graphique Chromium OLED, Faster-Whisper et SQLite.</p>
+                            
+                            <ol class="step-list">
+                                <li>
+                                    <strong>Étape 1 :</strong> Installez <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> (le moteur d'inférence gratuit).
+                                </li>
+                                <li>
+                                    <strong>Étape 2 :</strong> Téléchargez l'exécutable <code>JarvisAgency.exe</code>.
+                                </li>
+                                <li>
+                                    <strong>Étape 3 :</strong> Double-cliquez pour lancer. Le modèle adapté à votre carte graphique est automatiquement prêt !
+                                </li>
+                            </ol>
+
+                            <div class="download-cta-row">
+                                <a href="https://github.com" class="btn-download-main">
+                                    <span>📥</span> Télécharger JarvisAgency.exe (v2.0)
+                                </a>
+                                <span class="file-meta">92 Mo • 100% Hors-ligne</span>
+                            </div>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Vérification rapide Ollama</span></div>
+                                <pre><code># Vérifiez qu'Ollama est actif sur votre machine :
+curl http://127.0.0.1:11434/api/version
+
+# Téléchargez le modèle par défaut recommandé (Llama 3.1) :
+ollama run llama3.1:8b</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: POWERSHELL 1-CLICK -->
+                <div class="tab-content" id="tab_ps_script">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>Installation 100% Automatisée en 1 commande</h3>
+                            <p>Ce script détecte votre GPU NVIDIA / AMD / Intel, installe les dépendances nécessaires, configure le modèle idéal et lance Jarvis Agency.</p>
+                            
+                            <div class="terminal-copy-card">
+                                <div class="terminal-header"><span>PowerShell (Admin ou Utilisateur)</span></div>
+                                <div class="terminal-body">
+                                    <code>irm https://raw.githubusercontent.com/ayoub/jarvis-agency/main/install.ps1 | iex</code>
+                                    <button type="button" class="btn-copy-code" onclick="navigator.clipboard.writeText('irm https://raw.githubusercontent.com/ayoub/jarvis-agency/main/install.ps1 | iex')">📋 Copier</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Ce que fait le script :</span></div>
+                                <pre><code>[1/4] Détection GPU : Calcul de la VRAM disponible
+[2/4] Vérification Ollama : Téléchargement automatique si absent
+[3/4] Pull du modèle optimal : llama3.1:8b ou phi3:mini
+[4/4] Démarrage immédiat de Jarvis Agency Studio</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: ANDROID APK -->
+                <div class="tab-content" id="tab_android_apk">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>Application Native Android Companion</h3>
+                            <p>Pilotez votre IA locale depuis votre téléphone sur le même réseau Wi-Fi avec micro vocal et mémorisation automatique de l'IP du PC.</p>
+                            
+                            <div class="apk-download-box">
+                                <div class="apk-badge-row">
+                                    <span class="apk-chip">Android 7.0 à 15+</span>
+                                    <span class="apk-chip">Signé v2/v3</span>
+                                    <span class="apk-chip">Taille : 90 Ko</span>
+                                </div>
+                                <a href="downloads/JarvisAgency.apk" download class="btn-download-main">
+                                    <span>📥</span> Télécharger JarvisAgency.apk
+                                </a>
+                            </div>
+
+                            <p class="tab-note">💡 <strong>Option PWA :</strong> Vous pouvez également ouvrir l'adresse locale de votre PC dans Chrome sur Android et choisir <em>« Ajouter à l'écran d'accueil »</em> sans rien installer.</p>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Connexion Wi-Fi Mobile</span></div>
+                                <pre><code># 1. PC et Smartphone sur le même Wi-Fi
+# 2. Ouvrez l'application Android Jarvis Agency
+# 3. Entrez l'IP locale de votre PC (ex: http://192.168.1.35:9099)
+# 4. Connexion immédiate avec reconnaissance vocale !</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: DOCKER / DEV -->
+                <div class="tab-content" id="tab_docker_dev">
+                    <div class="tab-grid">
+                        <div class="tab-desc">
+                            <h3>Déploiement pour Développeurs & Linux</h3>
+                            <p>Clonez le dépôt Git pour lancer le backend FastAPI directement dans un environnement virtuel Python ou via conteneur.</p>
+                            
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Commandes Terminal</span></div>
+                                <pre><code>git clone https://github.com/ayoub/jarvis-agency.git
+cd jarvis-agency
+
+python -m venv .venv
+source .venv/bin/activate  # ou .venv\Scripts\activate sur Windows
+pip install -r requirements.txt
+
+# Lancement du serveur sur toutes les interfaces :
+uvicorn backend.server:app --host 0.0.0.0 --port 9099</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="tab-code">
+                            <div class="code-box-clean">
+                                <div class="code-box-header"><span>Variables d'environnement facultatives</span></div>
+                                <pre><code>OLLAMA_HOST=http://127.0.0.1:11434
+DEFAULT_AGENT=auto
+PORT=9099
+CORS_ORIGINS="*"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <nav class="pager" aria-label="Navigation entre les pages">
+        <div class="pager-inner"><a href="agents.html" class="pager-link prev"><small>Page précédente</small><span>← Agents</span></a><span></span></div>
+    </nav>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-wrap">
+                        <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                    </div>
+                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
+                    <p class="footer-tagline">Studio Multi-Agents IA 100% Local, Privé et Déployable. Conçu avec passion par Ayoub pour la communauté et le BTS SIO SISR.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Projet</h4>
+                        <a href="vision.html">Vision</a>
+                        <a href="architecture.html">Architecture</a>
+                        <a href="materiel.html">Modèles & GPU</a>
+                        <a href="agents.html">Agents</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Téléchargements</h4>
+                        <a href="installation.html">JarvisAgency.exe</a>
+                        <a href="downloads/JarvisAgency.apk" download>JarvisAgency.apk</a>
+                        <a href="installation.html">Script PowerShell</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Open Source</h4>
+                        <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Licence MIT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Jarvis Agency • Open Source sous licence MIT • Vos données restent sur votre ordinateur.</p>
+                <div class="footer-meta-badges">
+                    <span class="badge-mini">⚡ 100% Hors-Ligne</span>
+                    <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
