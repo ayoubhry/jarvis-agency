@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Multi-Agents IA 100% Local & Privé — Jarvis Agency</title>
-    <meta name="description" content="Déployez votre propre studio d'agents IA d'élite en local sur votre PC. 100% privé, sans abonnement, auto-détection du matériel et application mobile Android.">
-    <meta name="theme-color" content="#09090b">
+    <title>J.A.R.V.I.S. — Agent OS Local Windows 100% Privé</title>
+    <meta name="description" content="Agent OS Windows autonome 100% local : capture écran mss + UI Automation, boucle ReAct à 17 outils, voix CPU Faster-Whisper, validation HITL et Kill Switch Ctrl+Shift+X.">
+    <meta name="theme-color" content="#1C1C20">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,11 +21,11 @@
         <div class="header-container">
             <a href="index.html" class="brand-link">
                 <div class="brand-logo-wrap">
-                    <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                    <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
                 </div>
                 <div class="brand-text">
-                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
-                    <span class="brand-badge">v2.0 Local</span>
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <span class="brand-badge">v3.0 Local</span>
                 </div>
             </a>
 
@@ -33,14 +33,14 @@
                 <a href="vision.html" class="nav-item">Vision</a>
                 <a href="architecture.html" class="nav-item">Architecture</a>
                 <a href="materiel.html" class="nav-item">Modèles & Matériel</a>
-                <a href="agents.html" class="nav-item">Agents & Configurateur</a>
+                <a href="outils.html" class="nav-item">Outils & Sécurité</a>
                 <a href="installation.html" class="nav-item">Installation</a>
             </nav>
 
             <div class="header-actions">
                 <a href="installation.html" class="btn-header-cta"><span>⚡ Déployer</span></a>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>GitHub</span>
                 </a>
             </div>
@@ -51,172 +51,170 @@
         </div>
         <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
             <a href="vision.html" class="mobile-nav-item">Vision</a>
-                <a href="architecture.html" class="mobile-nav-item">Architecture</a>
-                <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
-                <a href="agents.html" class="mobile-nav-item">Agents & Configurateur</a>
-                <a href="installation.html" class="mobile-nav-item">Installation</a>
+            <a href="architecture.html" class="mobile-nav-item">Architecture</a>
+            <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
+            <a href="outils.html" class="mobile-nav-item">Outils & Sécurité</a>
+            <a href="installation.html" class="mobile-nav-item">Installation</a>
             <a href="installation.html" class="mobile-nav-cta">⚡ Déployer</a>
         </nav>
     </header>
 
     <main>
-<section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                <span>Version 2.0 Publique • 100% Local • Zéro Clé API • Mode Auto Inclus</span>
-            </div>
-
-            <h1 class="hero-title">
-                Votre Studio Multi-Agents IA <br>
-                <span class="text-gradient">Local, Privé et Autonome.</span>
-            </h1>
-
-            <p class="hero-subtitle">
-                Faites tourner une escouade de <strong>11 agents IA experts</strong> directement sur votre machine. Détection automatique du matériel, sélection intelligente d'agent, bureau Windows autonome et application Android connectée sur votre réseau local.
-            </p>
-
-            <div class="hero-cta-group">
-                <a href="installation.html" class="btn-primary-hero">
-                    <span class="cta-icon">📥</span>
-                    <span class="cta-text">
-                        <strong>Installer Jarvis Agency</strong>
-                        <small>Windows (.exe) • 1 Clic • Gratuit</small>
-                    </span>
-                </a>
-                <a href="agents.html" class="btn-secondary-hero">
-                    <span class="cta-icon">🎛️</span>
-                    <span class="cta-text">
-                        <strong>Configurateur d'Agents</strong>
-                        <small>Personnaliser votre équipe</small>
-                    </span>
-                </a>
-                <a href="downloads/JarvisAgency.apk" download class="btn-mobile-hero" title="Télécharger l'APK Android">
-                    <span class="cta-icon">📱</span>
-                    <span class="cta-text">
-                        <strong>APK Mobile</strong>
-                        <small>Android v1.0 (90 Ko)</small>
-                    </span>
-                </a>
-            </div>
-
-            <div class="hero-keypoints">
-                <div class="keypoint-item">
-                    <span class="kp-icon">🛡️</span>
-                    <span>100% Souverain & Privé</span>
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Version 3.0 Agent OS • 100% Local • Vision mss + UIA • Contrôle HITL</span>
                 </div>
-                <div class="keypoint-item">
-                    <span class="kp-icon">⚡</span>
-                    <span>Accélération GPU CUDA / CPU</span>
-                </div>
-                <div class="keypoint-item">
-                    <span class="kp-icon">🧠</span>
-                    <span>Mémoire Long Terme SQLite</span>
-                </div>
-                <div class="keypoint-item">
-                    <span class="kp-icon">📶</span>
-                    <span>Accès Mobile Wi-Fi & PWA</span>
-                </div>
-            </div>
 
-            <!-- LIVE INTERACTIVE HERO MOCKUP -->
-            <div class="hero-mockup-wrapper">
-                <div class="mockup-window">
-                    <div class="mockup-topbar">
-                        <div class="window-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <div class="mockup-title">Jarvis Agency — Studio Multi-Agents (Mode Auto Actif)</div>
-                        <div class="mockup-status-pill">
-                            <span class="pulse-green"></span>
-                            <span>100% GPU LOCAL • RTX 3070</span>
-                        </div>
+                <h1 class="hero-title">
+                    Votre Agent OS Local : <br>
+                    <span class="text-gradient">Il voit l'écran, et il agit sur votre PC.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Fini le simple chatbot passif : <strong>J.A.R.V.I.S. Agent OS</strong> observe votre bureau Windows en temps réel (<code>mss</code> + UI Automation), enchaîne jusqu'à 10 étapes via une boucle ReAct à <strong>17 outils modulaires</strong>, écoute votre voix sur CPU (0 Mo VRAM) et protège chaque action sensible par validation humaine.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="installation.html" class="btn-primary-hero">
+                        <span class="cta-icon">📥</span>
+                        <span class="cta-text">
+                            <strong>Installer JarvisAgency.exe</strong>
+                            <small>Windows 10/11 • Standalone (~204 Mo)</small>
+                        </span>
+                    </a>
+                    <a href="outils.html" class="btn-secondary-hero">
+                        <span class="cta-icon">🛡️</span>
+                        <span class="cta-text">
+                            <strong>Outils & Sécurité HITL</strong>
+                            <small>17 outils + générateur .env</small>
+                        </span>
+                    </a>
+                    <a href="materiel.html" class="btn-mobile-hero">
+                        <span class="cta-icon">🎛️</span>
+                        <span class="cta-text">
+                            <strong>Simulateur GPU / VRAM</strong>
+                            <small>Ollama • LM Studio • RTX 3070</small>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="hero-keypoints">
+                    <div class="keypoint-item">
+                        <span class="kp-icon">👁️</span>
+                        <span>Capture mss &lt; 30 ms + UIA</span>
                     </div>
-                    
-                    <div class="mockup-chat-body" id="heroChatBody">
-                        <div class="mockup-msg user">
-                            <div class="msg-avatar-chip">👤</div>
-                            <div class="msg-bubble">
-                                <strong>Consigne utilisateur :</strong> Peux-tu analyser ce fichier de capture Wireshark <code>capture.pcap</code> et vérifier s'il y a une attaque de type ARP spoofing sur le VLAN 10 ?
+                    <div class="keypoint-item">
+                        <span class="kp-icon">🛡️</span>
+                        <span>Validation HITL & Kill Switch Ctrl+Shift+X</span>
+                    </div>
+                    <div class="keypoint-item">
+                        <span class="kp-icon">🎙️</span>
+                        <span>Voix Whisper CPU (0 Mo VRAM)</span>
+                    </div>
+                    <div class="keypoint-item">
+                        <span class="kp-icon">🪟</span>
+                        <span>HUD OLED exclu de la capture (WDA)</span>
+                    </div>
+                </div>
+
+                <!-- LIVE INTERACTIVE AGENT OS HUD MOCKUP -->
+                <div class="hero-mockup-wrapper">
+                    <div class="mockup-window">
+                        <div class="mockup-topbar">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="mockup-title">J.A.R.V.I.S. — Agent OS Local (HUD Docké • WebSocket)</div>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <div class="mockup-status-pill">
+                                    <span class="pulse-green"></span>
+                                    <span>RTX 3070 • 4,7/8 Go • 51°C</span>
+                                </div>
+                                <span class="hero-mockup-stop">■ STOP</span>
                             </div>
                         </div>
 
-                        <div class="mockup-msg assistant">
-                            <div class="msg-avatar-chip">🌐</div>
-                            <div class="msg-bubble">
-                                <div class="auto-route-badge-demo">
-                                    <span class="bolt">⚡</span>
-                                    <span>Routage Automatique : <strong>NetAdmin</strong> • Réseaux & Systèmes (SISR)</span>
+                        <div class="mockup-chat-body" id="heroChatBody">
+                            <div class="mockup-msg user">
+                                <div class="msg-avatar-chip">👤</div>
+                                <div class="msg-bubble">Ouvre Cisco Packet Tracer</div>
+                            </div>
+
+                            <div class="mockup-msg assistant">
+                                <div class="msg-avatar-chip">⚡</div>
+                                <div class="msg-bubble">
+                                    <div class="auto-route-badge-demo">
+                                        <span class="bolt">●</span>
+                                        <span><strong>Boucle ReAct • Étape 1/2</strong></span>
+                                    </div>
+                                    <div class="action-log-preview">
+                                        <div class="action-log-head"><span>Journal d'actions • Résolution raccourci Windows</span><span>OK</span></div>
+                                        <div>open_application(app_name="Cisco Packet Tracer") → C:\Users\Public\Desktop\Cisco Packet Tracer.lnk</div>
+                                    </div>
+                                    <p class="alert-success">Cisco Packet Tracer est lancé. Tu veux que je t'aide à ouvrir un projet réseau en particulier ?</p>
                                 </div>
-                                <p>Analyse de la trame <code>capture.pcap</code> initiée. Détection des adresses MAC et broadcast ARP en cours sur le VLAN 10...</p>
-                                <div class="code-box-preview">
-                                    <div class="code-header"><span>Analyse Wireshark & Tshark</span><span class="code-lang">powershell</span></div>
-                                    <code>tshark -r capture.pcap -Y "arp.duplicate-address-frame" -T fields -e arp.src.proto_ipv4 -e arp.src.hw_mac</code>
-                                </div>
-                                <p class="alert-success">✓ <strong>Diagnostic :</strong> Détection de 2 réponses ARP conflictuelles pour l'IP passerelle <code>192.168.10.1</code>. Recommandation : activer le <strong>Dynamic ARP Inspection (DAI)</strong> sur le switch Cisco.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="section-block page-explore">
-        <div class="section-container">
-            <div class="section-head text-center">
-                <h2 class="section-title">Explorer Jarvis Agency</h2>
-                <p class="section-desc">Chaque thème a sa propre page.</p>
-            </div>
-            <div class="arch-grid">
-                <a href="vision.html" class="arch-card page-link-card">
-                    <div class="arch-card-icon">🎯</div>
-                    <h3 class="arch-card-title">Vision</h3>
-                    <p class="arch-card-text">Pourquoi un studio d'IA 100% local, et pour qui.</p>
-                    <span class="page-link-go">Ouvrir la page</span>
-                </a>
-                <a href="architecture.html" class="arch-card page-link-card">
-                    <div class="arch-card-icon">⚙️</div>
-                    <h3 class="arch-card-title">Architecture</h3>
-                    <p class="arch-card-text">Moteur d'inférence, backend FastAPI, client Windows et Android.</p>
-                    <span class="page-link-go">Ouvrir la page</span>
-                </a>
-                <a href="materiel.html" class="arch-card page-link-card">
-                    <div class="arch-card-icon">🎛️</div>
-                    <h3 class="arch-card-title">Modèles & Matériel</h3>
-                    <p class="arch-card-text">Testez votre configuration et trouvez le modèle adapté.</p>
-                    <span class="page-link-go">Ouvrir la page</span>
-                </a>
-                <a href="agents.html" class="arch-card page-link-card">
-                    <div class="arch-card-icon">👥</div>
-                    <h3 class="arch-card-title">Agents & Configurateur</h3>
-                    <p class="arch-card-text">Les 11 agents et le choix de votre équipe.</p>
-                    <span class="page-link-go">Ouvrir la page</span>
-                </a>
-                <a href="installation.html" class="arch-card page-link-card">
-                    <div class="arch-card-icon">🚀</div>
-                    <h3 class="arch-card-title">Installation</h3>
-                    <p class="arch-card-text">Windows, PowerShell, Android, Docker et Linux.</p>
-                    <span class="page-link-go">Ouvrir la page</span>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
+        <section class="section-block page-explore">
+            <div class="section-container">
+                <div class="section-head text-center">
+                    <h2 class="section-title">Explorer le nouvel Agent OS</h2>
+                    <p class="section-desc">Chaque composant du projet refondu est détaillé par thématique.</p>
+                </div>
+                <div class="arch-grid">
+                    <a href="vision.html" class="arch-card page-link-card">
+                        <div class="arch-card-icon">🎯</div>
+                        <h3 class="arch-card-title">Vision Agent OS</h3>
+                        <p class="arch-card-text">Du chat passif multi-agents vers un véritable opérateur Windows local, discret et souverain.</p>
+                        <span class="page-link-go">Ouvrir la page</span>
+                    </a>
+                    <a href="architecture.html" class="arch-card page-link-card">
+                        <div class="arch-card-icon">⚙️</div>
+                        <h3 class="arch-card-title">Architecture src/</h3>
+                        <p class="arch-card-text">Noyau PyWebView séquentiel, capture WDA, NVML en mémoire et WebSocket /ws/agent.</p>
+                        <span class="page-link-go">Ouvrir la page</span>
+                    </a>
+                    <a href="materiel.html" class="arch-card page-link-card">
+                        <div class="arch-card-icon">🎛️</div>
+                        <h3 class="arch-card-title">Modèles & VRAM</h3>
+                        <p class="arch-card-text">Profilage RTX 3070 8 Go, modèles qwen2.5:7b / qwen2.5vl:7b et STT CPU int8.</p>
+                        <span class="page-link-go">Ouvrir la page</span>
+                    </a>
+                    <a href="outils.html" class="arch-card page-link-card">
+                        <div class="arch-card-icon">🛡️</div>
+                        <h3 class="arch-card-title">Outils & Sécurité</h3>
+                        <p class="arch-card-text">Les 17 outils ReAct, les 4 niveaux HITL et le générateur interactif de .env.</p>
+                        <span class="page-link-go">Ouvrir la page</span>
+                    </a>
+                    <a href="installation.html" class="arch-card page-link-card">
+                        <div class="arch-card-icon">🚀</div>
+                        <h3 class="arch-card-title">Installation</h3>
+                        <p class="arch-card-text">Exécutable Windows standalone, lancement depuis src/ et compilation PyInstaller.</p>
+                        <span class="page-link-go">Ouvrir la page</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-
-    
 
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="brand-logo-wrap">
-                        <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                        <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
                     </div>
-                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
-                    <p class="footer-tagline">Studio Multi-Agents IA 100% Local, Privé et Déployable. Conçu avec passion par Ayoub pour la communauté et le BTS SIO SISR.</p>
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <p class="footer-tagline">Agent OS Windows 100 % Local, Multimodal et Sécurisé par validation humaine. Conçu par Ayoub sous licence MIT.</p>
                 </div>
 
                 <div class="footer-links-group">
@@ -225,25 +223,25 @@
                         <a href="vision.html">Vision</a>
                         <a href="architecture.html">Architecture</a>
                         <a href="materiel.html">Modèles & GPU</a>
-                        <a href="agents.html">Agents</a>
+                        <a href="outils.html">17 Outils & HITL</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Téléchargements</h4>
+                        <h4>Déploiement</h4>
                         <a href="installation.html">JarvisAgency.exe</a>
-                        <a href="downloads/JarvisAgency.apk" download>JarvisAgency.apk</a>
-                        <a href="installation.html">Script PowerShell</a>
+                        <a href="outils.html#env-config">Générateur .env</a>
+                        <a href="installation.html">Sources & Build</a>
                     </div>
                     <div class="footer-col">
                         <h4>Open Source</h4>
                         <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
                         <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
-                        <a href="https://github.com" target="_blank" rel="noopener">Licence MIT</a>
+                        <a href="LICENSE" target="_blank" rel="noopener">Licence MIT</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 Jarvis Agency • Open Source sous licence MIT • Vos données restent sur votre ordinateur.</p>
+                <p>© 2026 J.A.R.V.I.S. Agent OS Local • Open Source sous licence MIT • Vos captures et données restent sur votre PC.</p>
                 <div class="footer-meta-badges">
                     <span class="badge-mini">⚡ 100% Hors-Ligne</span>
                     <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>

@@ -1,11 +1,13 @@
 // ==============================================================================
-// JARVIS AGENCY — GITHUB PAGES INTERACTIVE ENGINE
-// Handles: Hardware Profiler, Team Configurator, Installation Tabs, Chat Demo
+// J.A.R.V.I.S. — AGENT OS LOCAL v3.0 SHOWCASE ENGINE
+// Handles: Hardware Simulator, 17-Tools & HITL Filter, .env Configurator,
+//          Installation Tabs, Copy Code, Interactive HUD Demo, Mobile Menu
 // ==============================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
     initHardwareCalculator();
-    initAgentConfigurator();
+    initToolsCatalog();
+    initEnvConfigurator();
     initInstallationTabs();
     initCopyButtons();
     initHeroDemo();
@@ -13,44 +15,44 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ------------------------------------------------------------------------------
-// 1. HARDWARE PROFILER & MODEL CALCULATOR
+// 1. HARDWARE PROFILER & VRAM SIMULATOR (Ollama / LM Studio + Whisper CPU int8)
 // ------------------------------------------------------------------------------
 const HARDWARE_PRESETS = {
-    high_gpu: {
-        badge: "CONFIG HAUTE PERFORMANCE (GPU 12 - 16 GB VRAM)",
-        model: "Qwen 2.5 14B Instruct (Q4_K_M)",
-        desc: "Raisonnement de classe entreprise, maîtrise parfaite de l'architecture logicielle, pentest avancé et analyse multilingue complexe. Déchargement total sur vos cœurs Tensor.",
-        speed: "65 - 85",
-        vram: "9.2 Go",
-        offload: "100% GPU CUDA",
-        command: "ollama run qwen2.5:14b"
-    },
     mid_gpu: {
-        badge: "OPTIMAL POUR GPU 8GB (RTX 3070 / 4060 / LAPTOPS)",
-        model: "Llama 3.1 8B Instruct (Q4_K_M)",
-        desc: "L'équilibre parfait entre vitesse et intelligence. Spécialiste des scripts PowerShell, configurations réseau Cisco/Samba et analyse de sécurité sans saturation de VRAM.",
+        badge: "CONFIGURATION ACTIVE RTX 3070 / 4060 (8 GO VRAM)",
+        model: "qwen2.5:7b (Texte + UIA) ou qwen2.5vl:7b (Vision Unifiée)",
+        desc: "qwen2.5:7b (~4,7 Go) répond instantanément avec UI Automation pour piloter les applications Windows. Pour l'analyse visuelle de captures mss, installez qwen2.5vl:7b (~5,6 Go) en 1 clic dans ⚙️ Config. Faster-Whisper reste sur CPU int8 (0 Mo VRAM).",
         speed: "55 - 75",
-        vram: "5.2 Go",
+        vram: "4,7 - 5,6 Go",
+        offload: "100% GPU + Whisper CPU",
+        command: "ollama pull qwen2.5:7b   # ou qwen2.5vl:7b pour la Vision"
+    },
+    high_gpu: {
+        badge: "HAUTE PERFORMANCE GPU (12 - 16 GO VRAM • RTX 4070 / 3080+)",
+        model: "Architecture Hybride : qwen2.5vl:7b + qwen2.5:14b",
+        desc: "Sépare FAST_MODEL et VISION_MODEL dans .env sans débordement mémoire : raisonnement complexe 14B et vision multimodale haute résolution simultanés dans la VRAM.",
+        speed: "60 - 80",
+        vram: "9,5 - 11 Go",
         offload: "100% GPU CUDA",
-        command: "ollama run llama3.1:8b"
+        command: "ollama pull qwen2.5vl:7b && ollama pull qwen2.5:14b"
     },
     low_gpu: {
-        badge: "ENTRY LEVEL GPU (4 - 6 GB VRAM • GTX 1650/1660)",
-        model: "Phi-3.5 Mini 3.8B / Qwen 2.5 3B",
-        desc: "Modèle ultra-compact et percutant de Microsoft. Tourne avec une fluidité exceptionnelle même sur les ordinateurs portables équipés de cartes graphiques d'entrée de gamme.",
+        badge: "GPU COMPACT (4 - 6 GO VRAM • GTX 1650 / RTX 3050)",
+        model: "qwen2.5vl:3b (Vision Unifiée Légère)",
+        desc: "Modèle multimodal ultra-compact tenant intégralement dans 4 Go de VRAM avec OLLAMA_FLASH_ATTENTION=1. Idéal pour PC portables bureautiques avec petit GPU NVIDIA.",
         speed: "45 - 65",
-        vram: "2.8 Go",
-        offload: "100% GPU CUDA",
-        command: "ollama run phi3.5:latest"
+        vram: "3,0 Go",
+        offload: "100% GPU + CPU Whisper",
+        command: "ollama pull qwen2.5vl:3b"
     },
     cpu_only: {
-        badge: "BUREAUTIQUE & CPU ONLY (16 GO RAM STANDARD)",
-        model: "Llama 3.2 3B / Qwen 2.5 1.5B (Quantisé CPU)",
-        desc: "Pour les ordinateurs sans carte graphique dédiée. L'inférence est exécutée sur les cœurs CPU via les instructions vectorielles AVX2 avec une consommation de mémoire minimale.",
-        speed: "20 - 35",
-        vram: "1.8 Go (RAM)",
+        badge: "PC PORTABLE SANS GPU DÉDIÉ (16 GO RAM)",
+        model: "qwen2.5:3b (Mode Texte + UI Automation)",
+        desc: "Sans GPU dédié, J.A.R.V.I.S. exploite l'arbre d'accessibilité Windows (UIA) via comtypes plutôt que les captures image afin de rester réactif sur processeur AVX2.",
+        speed: "18 - 30",
+        vram: "2,0 Go (RAM)",
         offload: "CPU Multi-Thread",
-        command: "ollama run llama3.2:3b"
+        command: "ollama pull qwen2.5:3b"
     }
 };
 
@@ -65,13 +67,14 @@ function initHardwareCalculator() {
     const commandText = document.getElementById("calcCommandText");
     const btnCopy = document.getElementById("btnCopyCalcCmd");
 
-    presetBtns.forEach(btn => {
+    if (!presetBtns.length || !tierBadge) return;
+
+    presetBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            presetBtns.forEach(b => b.classList.remove("active"));
+            presetBtns.forEach((b) => b.classList.remove("active"));
             btn.classList.add("active");
 
-            const key = btn.dataset.preset;
-            const data = HARDWARE_PRESETS[key];
+            const data = HARDWARE_PRESETS[btn.dataset.preset];
             if (!data) return;
 
             tierBadge.textContent = data.badge;
@@ -95,94 +98,120 @@ function initHardwareCalculator() {
 }
 
 // ------------------------------------------------------------------------------
-// 2. AGENTS CONFIGURATOR & PROFILE PRESETS
+// 2. TOOLS & SECURITY FILTER (17 Modular ReAct Tools)
 // ------------------------------------------------------------------------------
-const PROFILE_PRESETS = {
-    all: ["sentinel", "reviewer", "netadmin", "devops", "coder", "architect", "data_analyst", "researcher", "writer", "captain", "web_scout"],
-    sisr: ["netadmin", "devops", "sentinel", "reviewer", "architect", "captain"],
-    cyber: ["sentinel", "reviewer", "netadmin", "devops", "web_scout", "captain"],
-    dev: ["coder", "architect", "reviewer", "devops", "data_analyst", "captain"],
-    data: ["data_analyst", "researcher", "writer", "web_scout", "captain"]
-};
+function initToolsCatalog() {
+    const filterChips = document.querySelectorAll(".profile-chip[data-filter]");
+    const toolCards = document.querySelectorAll(".agent-card[data-category]");
+    const activeCountEl = document.getElementById("activeToolsCount");
 
-function initAgentConfigurator() {
-    const profileChips = document.querySelectorAll(".profile-chip");
-    const agentCheckboxes = document.querySelectorAll(".agent-checkbox");
-    const activeCountEl = document.getElementById("activeAgentsCount");
-    const btnExportConfig = document.getElementById("btnExportConfig");
+    if (!filterChips.length || !toolCards.length) return;
 
-    function updateActiveCount() {
-        let count = 0;
-        agentCheckboxes.forEach(cb => {
-            const card = cb.closest(".agent-card");
-            if (cb.checked) {
-                count++;
-                if (card) card.classList.remove("disabled");
-            } else {
-                if (card) card.classList.add("disabled");
-            }
+    function applyFilter(cat) {
+        let visible = 0;
+        toolCards.forEach((card) => {
+            const match = cat === "all" || card.dataset.category === cat || card.dataset.risk === cat;
+            card.style.display = match ? "flex" : "none";
+            if (match) visible++;
         });
-        if (activeCountEl) activeCountEl.textContent = count;
+        if (activeCountEl) activeCountEl.textContent = String(visible);
     }
 
-    profileChips.forEach(chip => {
+    filterChips.forEach((chip) => {
         chip.addEventListener("click", () => {
-            profileChips.forEach(c => c.classList.remove("active"));
+            filterChips.forEach((c) => c.classList.remove("active"));
             chip.classList.add("active");
-
-            const profile = chip.dataset.profile;
-            const allowedList = PROFILE_PRESETS[profile] || PROFILE_PRESETS.all;
-
-            agentCheckboxes.forEach(cb => {
-                const agentKey = cb.dataset.agent;
-                cb.checked = allowedList.includes(agentKey);
-            });
-
-            updateActiveCount();
+            applyFilter(chip.dataset.filter || "all");
         });
     });
 
-    agentCheckboxes.forEach(cb => {
-        cb.addEventListener("change", () => {
-            // Uncheck any preset chip if manual edits are made
-            profileChips.forEach(c => c.classList.remove("active"));
-            updateActiveCount();
-        });
+    applyFilter("all");
+}
+
+// ------------------------------------------------------------------------------
+// 3. LIVE .ENV & HITL PERMISSION CONFIGURATOR
+// ------------------------------------------------------------------------------
+function initEnvConfigurator() {
+    const providerEl = document.getElementById("envProvider");
+    const fastModelEl = document.getElementById("envFastModel");
+    const visionModelEl = document.getElementById("envVisionModel");
+    const permModeEl = document.getElementById("envPermMode");
+    const ttsEl = document.getElementById("envTts");
+    const cdpEl = document.getElementById("envCdp");
+    const hideHudEl = document.getElementById("envHideHud");
+    const topHudEl = document.getElementById("envTopHud");
+    const outputEl = document.getElementById("envPreviewCode");
+    const btnDownload = document.getElementById("btnDownloadEnv");
+    const btnCopyEnv = document.getElementById("btnCopyEnv");
+
+    if (!outputEl || !providerEl) return;
+
+    function buildEnvText() {
+        const prov = providerEl.value;
+        const baseUrl = prov === "lmstudio" ? "http://127.0.0.1:1234/v1" : "http://127.0.0.1:11434/v1";
+        const apiKey = prov === "lmstudio" ? "lm-studio" : "ollama";
+        const fast = (fastModelEl.value || "qwen2.5:7b").trim();
+        const vision = (visionModelEl.value || "qwen2.5vl:7b").trim();
+        const perm = permModeEl.value;
+        const tts = ttsEl.value;
+        const cdp = (cdpEl.value || "").trim();
+        const hideHud = hideHudEl.checked ? "true" : "false";
+        const topHud = topHudEl.checked ? "true" : "false";
+
+        return [
+            `LLM_PROVIDER=${prov}`,
+            `LLM_BASE_URL=${baseUrl}`,
+            `LLM_API_KEY=${apiKey}`,
+            ``,
+            `# Modèles Fast & Vision (RTX 3070 8 Go)`,
+            `FAST_MODEL=${fast}`,
+            `VISION_MODEL=${vision}`,
+            `LLM_TEMPERATURE=0.2`,
+            `LLM_MAX_TOKENS=2048`,
+            `LLM_TIMEOUT_SEC=120`,
+            `MAX_REACT_STEPS=10`,
+            ``,
+            `# Perception Écran (mss < 30 ms + UIA)`,
+            `VISION_MAX_WIDTH=1280`,
+            `VISION_MAX_HEIGHT=720`,
+            `VISION_JPEG_QUALITY=78`,
+            `UIA_MAX_ELEMENTS=45`,
+            ``,
+            `# Voix Locale (STT CPU int8 = 0 Mo VRAM)`,
+            `WHISPER_MODEL=tiny`,
+            `WHISPER_DEVICE=cpu`,
+            `WHISPER_COMPUTE_TYPE=int8`,
+            `TTS_ENGINE=${tts}`,
+            `PIPER_VOICE_PATH=`,
+            ``,
+            `# Sécurité HITL & HUD PyWebView`,
+            `KILL_SWITCH_HOTKEY=<ctrl>+<shift>+x`,
+            `HUD_ALWAYS_ON_TOP=${topHud}`,
+            `HUD_HIDE_DURING_ACTION=${hideHud}`,
+            `PERMISSION_MODE=${perm}`,
+            ``,
+            `# Navigateur Chrome CDP (Optionnel)`,
+            `CHROME_CDP_URL=${cdp}`
+        ].join("\n");
+    }
+
+    function refreshEnv() {
+        outputEl.textContent = buildEnvText();
+    }
+
+    [providerEl, fastModelEl, visionModelEl, permModeEl, ttsEl, cdpEl, hideHudEl, topHudEl].forEach((el) => {
+        if (!el) return;
+        el.addEventListener("input", refreshEnv);
+        el.addEventListener("change", refreshEnv);
     });
 
-    if (btnExportConfig) {
-        btnExportConfig.addEventListener("click", () => {
-            const activeAgents = [];
-            agentCheckboxes.forEach(cb => {
-                if (cb.checked) {
-                    const card = cb.closest(".agent-card");
-                    const name = card.querySelector(".agent-name")?.textContent || cb.dataset.agent;
-                    const role = card.querySelector(".agent-role")?.textContent || "";
-                    const category = card.dataset.category || "";
-                    activeAgents.push({
-                        id: cb.dataset.agent,
-                        name: name,
-                        role: role,
-                        category: category,
-                        enabled: true
-                    });
-                }
-            });
-
-            const configJson = {
-                app: "Jarvis Agency",
-                version: "2.0",
-                created_at: new Date().toISOString(),
-                routing_mode: "auto",
-                active_agents_count: activeAgents.length,
-                agents: activeAgents
-            };
-
-            const blob = new Blob([JSON.stringify(configJson, null, 2)], { type: "application/json" });
+    if (btnDownload) {
+        btnDownload.addEventListener("click", () => {
+            const blob = new Blob([buildEnvText() + "\n"], { type: "text/plain;charset=utf-8" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = "agents_config.json";
+            a.download = ".env";
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -190,21 +219,31 @@ function initAgentConfigurator() {
         });
     }
 
-    updateActiveCount();
+    if (btnCopyEnv) {
+        btnCopyEnv.addEventListener("click", () => {
+            navigator.clipboard.writeText(buildEnvText()).then(() => {
+                btnCopyEnv.textContent = "✓ Copié !";
+                setTimeout(() => { btnCopyEnv.textContent = "📋 Copier .env"; }, 2000);
+            });
+        });
+    }
+
+    refreshEnv();
 }
 
 // ------------------------------------------------------------------------------
-// 3. INSTALLATION TABS SWITCHING
+// 4. INSTALLATION TABS SWITCHING
 // ------------------------------------------------------------------------------
 function initInstallationTabs() {
     const tabBtns = document.querySelectorAll(".tab-btn");
     const tabContents = document.querySelectorAll(".tab-content");
+    if (!tabBtns.length) return;
 
-    tabBtns.forEach(btn => {
+    tabBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
             const targetId = "tab_" + btn.dataset.tab;
-            tabBtns.forEach(b => b.classList.remove("active"));
-            tabContents.forEach(c => c.classList.remove("active"));
+            tabBtns.forEach((b) => b.classList.remove("active"));
+            tabContents.forEach((c) => c.classList.remove("active"));
 
             btn.classList.add("active");
             const targetEl = document.getElementById(targetId);
@@ -214,10 +253,10 @@ function initInstallationTabs() {
 }
 
 // ------------------------------------------------------------------------------
-// 4. COPY CODE BUTTONS
+// 5. COPY CODE BUTTONS
 // ------------------------------------------------------------------------------
 function initCopyButtons() {
-    document.querySelectorAll(".code-box-clean, .terminal-copy-card").forEach(box => {
+    document.querySelectorAll(".code-box-clean, .terminal-copy-card").forEach((box) => {
         const header = box.querySelector(".code-box-header, .terminal-header");
         const code = box.querySelector("code");
         if (header && code && !box.querySelector(".btn-copy-code")) {
@@ -241,38 +280,32 @@ function initCopyButtons() {
 }
 
 // ------------------------------------------------------------------------------
-// 5. HERO CHAT INTERACTIVE ROTATING DEMO
+// 6. HERO HUD INTERACTIVE ROTATING DEMO (Agent OS ReAct + HITL + J.A.R.V.I.S.)
 // ------------------------------------------------------------------------------
 const DEMO_TURNS = [
     {
-        user: "Peux-tu analyser ce fichier de capture Wireshark capture.pcap et vérifier s'il y a une attaque de type ARP spoofing sur le VLAN 10 ?",
-        agent: "NetAdmin",
-        avatar: "🌐",
-        category: "Réseaux & Systèmes (SISR)",
-        text: "Analyse de la trame <code>capture.pcap</code> initiée. Détection des adresses MAC et broadcast ARP en cours sur le VLAN 10...",
-        codeHeader: "Analyse Wireshark & Tshark",
-        code: 'tshark -r capture.pcap -Y "arp.duplicate-address-frame" -T fields -e arp.src.proto_ipv4 -e arp.src.hw_mac',
-        alert: "✓ <strong>Diagnostic :</strong> Détection de 2 réponses ARP conflictuelles pour l'IP passerelle <code>192.168.10.1</code>. Recommandation : activer le <strong>Dynamic ARP Inspection (DAI)</strong> sur le switch Cisco."
+        user: "Ouvre Cisco Packet Tracer",
+        badge: "Boucle ReAct • Étape 1/2",
+        actionLogTitle: "Journal d'actions • Résolution raccourci Windows",
+        actionLogDetail: "open_application(app_name=\"Cisco Packet Tracer\") → C:\\Users\\Public\\Desktop\\Cisco Packet Tracer.lnk",
+        hitl: null,
+        reply: "Cisco Packet Tracer est lancé. Tu veux que je t'aide à ouvrir un projet réseau en particulier ?"
     },
     {
-        user: "Fais l'audit de sécurité de ce script PowerShell d'intégration des utilisateurs Active Directory.",
-        agent: "Sentinel",
-        avatar: "🥷",
-        category: "Cybersécurité & Audit",
-        text: "Examen de conformité ANSSI & durcissement PowerShell en cours sur le script <code>New-AdUsers.ps1</code>...",
-        codeHeader: "Vérification des vulnérabilités de credentials",
-        code: 'Select-String -Path .\\New-AdUsers.ps1 -Pattern "ConvertTo-SecureString.*-AsPlainText"',
-        alert: "⚠️ <strong>Vulnérabilité critique détectée :</strong> Le mot de passe initial est passé en clair dans les logs d'événements. Remplacement immédiat par un jeton d'authentification temporaire à usage unique."
+        user: "Vérifie l'adresse IP et la passerelle par défaut du PC",
+        badge: "Boucle ReAct + HITL • Étape 1/2",
+        actionLogTitle: "Journal d'actions • Exécution PowerShell autorisée",
+        actionLogDetail: "run_terminal_command(command=\"ipconfig | Select-String 'IPv4|Passerelle'\") → 192.168.1.42 / 192.168.1.1",
+        hitl: "Action sensible : run_terminal_command",
+        reply: "Ton poste est en 192.168.1.42 avec la passerelle par défaut sur 192.168.1.1."
     },
     {
-        user: "Écris-moi une fonction asynchrone FastAPI pour streamer une réponse SSE token par token.",
-        agent: "Developer",
-        avatar: "💻",
-        category: "Développement & Architecture",
-        text: "Génération de la route FastAPI avec <code>StreamingResponse</code> et protocole <code>text/event-stream</code>...",
-        codeHeader: "Endpoint FastAPI Asynchrone",
-        code: '@app.post("/api/chat")\nasync def stream_chat(req: ChatRequest):\n    return StreamingResponse(event_generator(req), media_type="text/event-stream")',
-        alert: "✓ <strong>Performance validée :</strong> Zéro mise en mémoire tampon (Buffer Flushing instantané) compatible avec tous les navigateurs et clients mobiles."
+        user: "Observe la fenêtre ouverte et enregistre le fichier en cours",
+        badge: "Vision mss + UIA • Étape 1/2",
+        actionLogTitle: "Journal d'actions • Capture WDA Exclu (24 ms)",
+        actionLogDetail: "observe_screen() → press_hotkey(['ctrl', 's']) → Vérification post-action OK",
+        hitl: null,
+        reply: "C'est fait, ton fichier a bien été enregistré sur la fenêtre active."
     }
 ];
 
@@ -290,38 +323,42 @@ function initHeroDemo() {
         chatBody.style.transition = "all 0.25s ease";
 
         setTimeout(() => {
+            const hitlHtml = d.hitl
+                ? `<div class="hitl-banner-demo">
+                       <span>🛡️ <strong>Validation HITL :</strong> ${d.hitl}</span>
+                       <span class="hitl-pills"><span class="hitl-btn-ok">✓ Autoriser</span><span class="hitl-btn-no">✕ Refuser</span></span>
+                   </div>`
+                : "";
+
             chatBody.innerHTML = `
                 <div class="mockup-msg user">
                     <div class="msg-avatar-chip">👤</div>
-                    <div class="msg-bubble">
-                        <strong>Consigne utilisateur :</strong> ${d.user}
-                    </div>
+                    <div class="msg-bubble">${d.user}</div>
                 </div>
-
                 <div class="mockup-msg assistant">
-                    <div class="msg-avatar-chip">${d.avatar}</div>
+                    <div class="msg-avatar-chip">⚡</div>
                     <div class="msg-bubble">
                         <div class="auto-route-badge-demo">
-                            <span class="bolt">⚡</span>
-                            <span>Routage Automatique : <strong>${d.agent}</strong> • ${d.category}</span>
+                            <span class="bolt">●</span>
+                            <span><strong>${d.badge}</strong></span>
                         </div>
-                        <p>${d.text}</p>
-                        <div class="code-box-preview">
-                            <div class="code-header"><span>${d.codeHeader}</span><span class="code-lang">powershell / python</span></div>
-                            <code>${d.code}</code>
+                        ${hitlHtml}
+                        <div class="action-log-preview">
+                            <div class="action-log-head"><span>${d.actionLogTitle}</span><span>OK</span></div>
+                            <div>${d.actionLogDetail}</div>
                         </div>
-                        <p class="alert-success">${d.alert}</p>
+                        <p class="alert-success">${d.reply}</p>
                     </div>
                 </div>
             `;
             chatBody.style.opacity = "1";
             chatBody.style.transform = "translateY(0)";
-        }, 260);
-    }, 7000);
+        }, 250);
+    }, 6500);
 }
 
 // ------------------------------------------------------------------------------
-// 6. MOBILE MENU
+// 7. MOBILE MENU
 // ------------------------------------------------------------------------------
 function initMobileMenu() {
     const toggle = document.getElementById("btnMobileToggle");

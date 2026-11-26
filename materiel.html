@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modèles & Matériel — Jarvis Agency</title>
-    <meta name="description" content="Testez votre configuration (GPU ou CPU) et découvrez le modèle recommandé par Jarvis Agency.">
-    <meta name="theme-color" content="#09090b">
+    <title>Modèles & Matériel — J.A.R.V.I.S. Agent OS Local</title>
+    <meta name="description" content="Simulateur GPU / VRAM pour J.A.R.V.I.S. Agent OS Local : qwen2.5:7b, qwen2.5vl:7b, qwen2.5vl:3b, Ollama, LM Studio et Whisper CPU int8.">
+    <meta name="theme-color" content="#1C1C20">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,11 +21,11 @@
         <div class="header-container">
             <a href="index.html" class="brand-link">
                 <div class="brand-logo-wrap">
-                    <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                    <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
                 </div>
                 <div class="brand-text">
-                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
-                    <span class="brand-badge">v2.0 Local</span>
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <span class="brand-badge">v3.0 Local</span>
                 </div>
             </a>
 
@@ -33,14 +33,14 @@
                 <a href="vision.html" class="nav-item">Vision</a>
                 <a href="architecture.html" class="nav-item">Architecture</a>
                 <a href="materiel.html" class="nav-item" aria-current="page">Modèles & Matériel</a>
-                <a href="agents.html" class="nav-item">Agents & Configurateur</a>
+                <a href="outils.html" class="nav-item">Outils & Sécurité</a>
                 <a href="installation.html" class="nav-item">Installation</a>
             </nav>
 
             <div class="header-actions">
                 <a href="installation.html" class="btn-header-cta"><span>⚡ Déployer</span></a>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>GitHub</span>
                 </a>
             </div>
@@ -51,88 +51,106 @@
         </div>
         <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
             <a href="vision.html" class="mobile-nav-item">Vision</a>
-                <a href="architecture.html" class="mobile-nav-item">Architecture</a>
-                <a href="materiel.html" class="mobile-nav-item" aria-current="page">Modèles & Matériel</a>
-                <a href="agents.html" class="mobile-nav-item">Agents & Configurateur</a>
-                <a href="installation.html" class="mobile-nav-item">Installation</a>
+            <a href="architecture.html" class="mobile-nav-item">Architecture</a>
+            <a href="materiel.html" class="mobile-nav-item" aria-current="page">Modèles & Matériel</a>
+            <a href="outils.html" class="mobile-nav-item">Outils & Sécurité</a>
+            <a href="installation.html" class="mobile-nav-item">Installation</a>
             <a href="installation.html" class="mobile-nav-cta">⚡ Déployer</a>
         </nav>
     </header>
 
     <main>
-<section class="section-block page-first" id="hardware">
-        <div class="section-container">
-            <div class="section-head text-center">
-                <div class="subhead-pill">🎯 N'importe quel PC • Modèle Idéal</div>
-                <h2 class="section-title">Auto-Détection & Sélection du Modèle</h2>
-                <p class="section-desc">Jarvis Agency ne force pas un modèle trop lourd pour votre ordinateur. En fonction de votre carte graphique et de votre mémoire RAM, le modèle le plus adapté est sélectionné automatiquement.</p>
-            </div>
-
-            <!-- INTERACTIVE HARDWARE SIMULATOR -->
-            <div class="hardware-calc-box">
-                <div class="calc-header">
-                    <div class="calc-title">🎛️ Testez votre configuration matérielle :</div>
-                    <div class="calc-subtitle">Choisissez votre équipement pour voir quel modèle sera configuré par défaut.</div>
+        <section class="section-block page-first" id="hardware">
+            <div class="section-container">
+                <div class="section-head text-center">
+                    <div class="subhead-pill">🎯 Ollama • LM Studio • RTX 3070 8 Go</div>
+                    <h2 class="section-title">Budget VRAM & Sélection du Modèle</h2>
+                    <p class="section-desc">J.A.R.V.I.S. sépare intelligemment <code>FAST_MODEL</code> et <code>VISION_MODEL</code> dans <code>.env</code>, conserve <code>Faster-Whisper</code> sur CPU (<code>int8</code>) et se replie proprement sur le texte + UIA tant qu'aucun modèle Vision n'est téléchargé.</p>
                 </div>
 
-                <div class="calc-presets-row">
-                    <button type="button" class="preset-btn active" data-preset="mid_gpu">
-                        <span class="p-icon">🎮</span>
-                        <span class="p-label">GPU 8 Go VRAM (ex: RTX 3070 / 4060)</span>
-                    </button>
-                    <button type="button" class="preset-btn" data-preset="high_gpu">
-                        <span class="p-icon">🚀</span>
-                        <span class="p-label">GPU 12-16 Go (ex: RTX 4070 / 3080)</span>
-                    </button>
-                    <button type="button" class="preset-btn" data-preset="low_gpu">
-                        <span class="p-icon">💻</span>
-                        <span class="p-label">GPU 4-6 Go (GTX 1650/1660 / RTX 3050)</span>
-                    </button>
-                    <button type="button" class="preset-btn" data-preset="cpu_only">
-                        <span class="p-icon">🖥️</span>
-                        <span class="p-label">CPU Uniquement (16 Go RAM standard)</span>
-                    </button>
-                </div>
+                <!-- INTERACTIVE HARDWARE SIMULATOR -->
+                <div class="hardware-calc-box">
+                    <div class="calc-header">
+                        <div class="calc-title">🎛️ Simulez votre configuration GPU / RAM :</div>
+                        <div class="calc-subtitle">Sélectionnez votre matériel pour afficher les modèles Qwen 2.5 / Qwen 2.5 VL recommandés.</div>
+                    </div>
 
-                <div class="calc-result-card" id="calcResultCard">
-                    <div class="result-badge" id="calcTierBadge">OPTIMAL POUR GPU 8GB (RTX 3070 / 4060)</div>
-                    <div class="result-main-grid">
-                        <div class="res-left">
-                            <div class="res-label">Modèle Recommandé :</div>
-                            <div class="res-model-name" id="calcModelName">Llama 3.1 8B Instruct (Q4_K_M)</div>
-                            <div class="res-model-desc" id="calcModelDesc">Excellente logique de code, raisonnement réseau SISR et cybersécurité. S'insère parfaitement dans les 8 Go de VRAM avec 100% de déchargement GPU CUDA.</div>
+                    <div class="calc-presets-row">
+                        <button type="button" class="preset-btn active" data-preset="mid_gpu">
+                            <span class="p-icon">🎮</span>
+                            <span class="p-label">GPU 8 Go VRAM (RTX 3070 / 4060)</span>
+                        </button>
+                        <button type="button" class="preset-btn" data-preset="high_gpu">
+                            <span class="p-icon">🚀</span>
+                            <span class="p-label">GPU 12-16 Go (RTX 4070 / 3080)</span>
+                        </button>
+                        <button type="button" class="preset-btn" data-preset="low_gpu">
+                            <span class="p-icon">💻</span>
+                            <span class="p-label">GPU 4-6 Go (GTX 1650 / RTX 3050)</span>
+                        </button>
+                        <button type="button" class="preset-btn" data-preset="cpu_only">
+                            <span class="p-icon">🖥️</span>
+                            <span class="p-label">CPU Uniquement (16 Go RAM)</span>
+                        </button>
+                    </div>
+
+                    <div class="calc-result-card" id="calcResultCard">
+                        <div class="result-badge" id="calcTierBadge">CONFIGURATION ACTIVE RTX 3070 / 4060 (8 GO VRAM)</div>
+                        <div class="result-main-grid">
+                            <div class="res-left">
+                                <div class="res-label">Modèles Recommandés :</div>
+                                <div class="res-model-name" id="calcModelName">qwen2.5:7b (Texte + UIA) ou qwen2.5vl:7b (Vision Unifiée)</div>
+                                <div class="res-model-desc" id="calcModelDesc">qwen2.5:7b (~4,7 Go) répond instantanément avec UI Automation pour piloter les applications Windows. Pour l'analyse visuelle de captures mss, installez qwen2.5vl:7b (~5,6 Go) en 1 clic dans ⚙️ Config. Faster-Whisper reste sur CPU int8 (0 Mo VRAM).</div>
+                            </div>
+                            <div class="res-stats">
+                                <div class="stat-pill">
+                                    <span class="stat-num" id="calcSpeed">55 - 75</span>
+                                    <span class="stat-unit">tokens / sec</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <span class="stat-num" id="calcVramUsage">4,7 - 5,6 Go</span>
+                                    <span class="stat-unit">VRAM occupée</span>
+                                </div>
+                                <div class="stat-pill">
+                                    <span class="stat-num" id="calcOffload">100% GPU + Whisper CPU</span>
+                                    <span class="stat-unit">Zéro swap VRAM/RAM</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="res-stats">
-                            <div class="stat-pill">
-                                <span class="stat-num" id="calcSpeed">55 - 75</span>
-                                <span class="stat-unit">tokens / sec</span>
-                            </div>
-                            <div class="stat-pill">
-                                <span class="stat-num" id="calcVramUsage">5.2 Go</span>
-                                <span class="stat-unit">VRAM consommée</span>
-                            </div>
-                            <div class="stat-pill">
-                                <span class="stat-num" id="calcOffload">100% GPU</span>
-                                <span class="stat-unit">Zéro ralentissement CPU</span>
+
+                        <div class="result-command-box">
+                            <div class="cmd-label">Commande Ollama (stockage local <code>IA Local/models</code>) :</div>
+                            <div class="cmd-row">
+                                <code id="calcCommandText">ollama pull qwen2.5:7b   # ou qwen2.5vl:7b pour la Vision</code>
+                                <button type="button" class="btn-copy-code" id="btnCopyCalcCmd">📋 Copier</button>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="result-command-box">
-                        <div class="cmd-label">Commande d'installation automatique Ollama :</div>
-                        <div class="cmd-row">
-                            <code id="calcCommandText">ollama run llama3.1:8b</code>
-                            <button type="button" class="btn-copy-code" id="btnCopyCalcCmd">📋 Copier</button>
-                        </div>
+                <div class="arch-grid" style="margin-top:36px;">
+                    <div class="arch-card">
+                        <div class="arch-card-icon">📥</div>
+                        <h3 class="arch-card-title">Téléchargement Vision en 1 clic</h3>
+                        <p class="arch-card-text">Dans le HUD, le menu <strong>⚙️ Config</strong> affiche les modèles réellement détectés dans <code>IA Local/models</code> et permet de télécharger <code>qwen2.5vl:7b</code> en direct via SSE (<code>/api/models/pull</code>).</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-card-icon">📊</div>
+                        <h3 class="arch-card-title">Télémétrie NVML sans console</h3>
+                        <p class="arch-card-text">La barre de statut lit température, charge GPU et VRAM directement en mémoire via <code>nvml.dll</code> (<code>ctypes</code>) toutes les 2 secondes : précision temps réel et aucune fenêtre terminal parasite.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-card-icon">🧹</div>
+                        <h3 class="arch-card-title">Libération VRAM instantanée</h3>
+                        <p class="arch-card-text">Un bouton dédié appelle <code>unload_vram_models()</code> (<code>keep_alive=0</code> sur Ollama) afin de vider immédiatement la VRAM à 0 % lorsque vous lancez un logiciel 3D ou un jeu.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     </main>
 
     <nav class="pager" aria-label="Navigation entre les pages">
-        <div class="pager-inner"><a href="architecture.html" class="pager-link prev"><small>Page précédente</small><span>← Architecture</span></a><a href="agents.html" class="pager-link next"><small>Page suivante</small><span>Agents →</span></a></div>
+        <div class="pager-inner"><a href="architecture.html" class="pager-link prev"><small>Page précédente</small><span>← Architecture</span></a><a href="outils.html" class="pager-link next"><small>Page suivante</small><span>Outils & Sécurité →</span></a></div>
     </nav>
 
     <footer class="site-footer">
@@ -140,10 +158,10 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="brand-logo-wrap">
-                        <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                        <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
                     </div>
-                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
-                    <p class="footer-tagline">Studio Multi-Agents IA 100% Local, Privé et Déployable. Conçu avec passion par Ayoub pour la communauté et le BTS SIO SISR.</p>
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <p class="footer-tagline">Agent OS Windows 100 % Local, Multimodal et Sécurisé par validation humaine. Conçu par Ayoub sous licence MIT.</p>
                 </div>
 
                 <div class="footer-links-group">
@@ -152,25 +170,25 @@
                         <a href="vision.html">Vision</a>
                         <a href="architecture.html">Architecture</a>
                         <a href="materiel.html">Modèles & GPU</a>
-                        <a href="agents.html">Agents</a>
+                        <a href="outils.html">17 Outils & HITL</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Téléchargements</h4>
+                        <h4>Déploiement</h4>
                         <a href="installation.html">JarvisAgency.exe</a>
-                        <a href="downloads/JarvisAgency.apk" download>JarvisAgency.apk</a>
-                        <a href="installation.html">Script PowerShell</a>
+                        <a href="outils.html#env-config">Générateur .env</a>
+                        <a href="installation.html">Sources & Build</a>
                     </div>
                     <div class="footer-col">
                         <h4>Open Source</h4>
                         <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
                         <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
-                        <a href="https://github.com" target="_blank" rel="noopener">Licence MIT</a>
+                        <a href="LICENSE" target="_blank" rel="noopener">Licence MIT</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 Jarvis Agency • Open Source sous licence MIT • Vos données restent sur votre ordinateur.</p>
+                <p>© 2026 J.A.R.V.I.S. Agent OS Local • Open Source sous licence MIT • Vos captures et données restent sur votre PC.</p>
                 <div class="footer-meta-badges">
                     <span class="badge-mini">⚡ 100% Hors-Ligne</span>
                     <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>

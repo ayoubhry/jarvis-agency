@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture — Jarvis Agency</title>
-    <meta name="description" content="Comment Jarvis Agency est construit : moteur d'inférence Ollama, backend FastAPI, client Windows et application Android.">
-    <meta name="theme-color" content="#09090b">
+    <title>Architecture src/ — J.A.R.V.I.S. Agent OS Local</title>
+    <meta name="description" content="Architecture modulaire du projet remodelé : core ReAct, vision mss + UIA Z-order, 17 outils, voix CPU int8, backend FastAPI NVML et HUD PyWebView.">
+    <meta name="theme-color" content="#1C1C20">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,11 +21,11 @@
         <div class="header-container">
             <a href="index.html" class="brand-link">
                 <div class="brand-logo-wrap">
-                    <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                    <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
                 </div>
                 <div class="brand-text">
-                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
-                    <span class="brand-badge">v2.0 Local</span>
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <span class="brand-badge">v3.0 Local</span>
                 </div>
             </a>
 
@@ -33,14 +33,14 @@
                 <a href="vision.html" class="nav-item">Vision</a>
                 <a href="architecture.html" class="nav-item" aria-current="page">Architecture</a>
                 <a href="materiel.html" class="nav-item">Modèles & Matériel</a>
-                <a href="agents.html" class="nav-item">Agents & Configurateur</a>
+                <a href="outils.html" class="nav-item">Outils & Sécurité</a>
                 <a href="installation.html" class="nav-item">Installation</a>
             </nav>
 
             <div class="header-actions">
                 <a href="installation.html" class="btn-header-cta"><span>⚡ Déployer</span></a>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>GitHub</span>
                 </a>
             </div>
@@ -51,78 +51,125 @@
         </div>
         <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
             <a href="vision.html" class="mobile-nav-item">Vision</a>
-                <a href="architecture.html" class="mobile-nav-item" aria-current="page">Architecture</a>
-                <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
-                <a href="agents.html" class="mobile-nav-item">Agents & Configurateur</a>
-                <a href="installation.html" class="mobile-nav-item">Installation</a>
+            <a href="architecture.html" class="mobile-nav-item" aria-current="page">Architecture</a>
+            <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
+            <a href="outils.html" class="mobile-nav-item">Outils & Sécurité</a>
+            <a href="installation.html" class="mobile-nav-item">Installation</a>
             <a href="installation.html" class="mobile-nav-cta">⚡ Déployer</a>
         </nav>
     </header>
 
     <main>
-<section class="section-block page-first" id="architecture">
-        <div class="section-container">
-            <div class="section-head text-center">
-                <div class="subhead-pill">⚙️ Architecture Technique</div>
-                <h2 class="section-title">Comment Jarvis Agency est construit</h2>
-                <p class="section-desc">Une architecture locale de pointe, pensée pour éliminer les dépendances cloud et garantir des temps de réponse instantanés.</p>
+        <section class="section-block page-first" id="architecture">
+            <div class="section-container">
+                <div class="section-head text-center">
+                    <div class="subhead-pill">⚙️ Architecture Modulaire src/</div>
+                    <h2 class="section-title">Comment J.A.R.V.I.S. Agent OS fonctionne</h2>
+                    <p class="section-desc">Six briques découplées autour d'un lanceur PyWebView séquentiel, conçues pour éliminer tout blocage de démarrage et toute ouverture parasite de console.</p>
+                </div>
+
+                <div class="arch-grid arch-grid-3">
+                    <div class="arch-card">
+                        <div class="arch-card-icon">🧠</div>
+                        <h3 class="arch-card-title">Noyau ReAct & Sécurité (<code>core/</code>)</h3>
+                        <p class="arch-card-text">
+                            <code>react_loop.py</code> pilote la boucle asynchrone (jusqu'à 10 étapes). <code>llm_client.py</code> gère Ollama & LM Studio sous mutex <code>_OLLAMA_START_LOCK</code> avec repli texte+UIA si le modèle Vision n'est pas encore installé.
+                        </p>
+                        <ul class="arch-specs">
+                            <li><span>Sécurité :</span> HITL asyncio + FailSafe</li>
+                            <li><span>Kill Switch :</span> pynput Ctrl+Shift+X</li>
+                            <li><span>HUD Win32 :</span> WDA + EnumWindows / SetWindowPos</li>
+                        </ul>
+                    </div>
+
+                    <div class="arch-card">
+                        <div class="arch-card-icon">👁️</div>
+                        <h3 class="arch-card-title">Perception Hybride (<code>vision/</code>)</h3>
+                        <p class="arch-card-text">
+                            <code>screen.py</code> capture l'écran via <code>mss</code> en moins de 30 ms et redimensionne en 1280×720 JPEG (78%) pour économiser la VRAM. <code>accessibility.py</code> parcourt l'ordre Z (<code>GW_HWNDNEXT</code>) en ignorant le HUD pour extraire jusqu'à 45 éléments UIA.
+                        </p>
+                        <ul class="arch-specs">
+                            <li><span>Capture :</span> mss DPI-aware</li>
+                            <li><span>UIA :</span> comtypes (45 contrôles max)</li>
+                            <li><span>Exclusion :</span> WDA_EXCLUDEFROMCAPTURE</li>
+                        </ul>
+                    </div>
+
+                    <div class="arch-card">
+                        <div class="arch-card-icon">🛠️</div>
+                        <h3 class="arch-card-title">17 Outils Modulaires (<code>tools/</code>)</h3>
+                        <p class="arch-card-text">
+                            <code>registry.py</code> génère automatiquement les schémas OpenAI Tool Calling : souris/clavier <code>pyautogui</code>, résolution de raccourcis Bureau/Menu Démarrer <code>.lnk</code>, Playwright/Chrome CDP et macros déclaratives JSON.
+                        </p>
+                        <ul class="arch-specs">
+                            <li><span>Desktop :</span> clics, saisie UTF-8, raccourcis</li>
+                            <li><span>Web :</span> Playwright / Chrome CDP + ddgs</li>
+                            <li><span>Macros :</span> data/macros.json</li>
+                        </ul>
+                    </div>
+
+                    <div class="arch-card">
+                        <div class="arch-card-icon">🎙️</div>
+                        <h3 class="arch-card-title">Pipeline Vocal CPU (<code>voice/</code>)</h3>
+                        <p class="arch-card-text">
+                            Reconnaissance vocale (<code>stt.py</code>) via <code>Faster-Whisper</code> (<code>tiny</code>, <code>cpu</code>, <code>int8</code>) consommant 0 Mo de VRAM GPU. Synthèse vocale (<code>tts.py</code>) par Piper ONNX local avec repli Windows SAPI5 (<code>pyttsx3</code>) ou <code>edge-tts</code>.
+                        </p>
+                        <ul class="arch-specs">
+                            <li><span>Raccourci :</span> Ctrl+Espace (Maintenir)</li>
+                            <li><span>STT :</span> Faster-Whisper CPU int8</li>
+                            <li><span>TTS :</span> Piper / SAPI5 hors-ligne</li>
+                        </ul>
+                    </div>
+
+                    <div class="arch-card">
+                        <div class="arch-card-icon">⚡</div>
+                        <h3 class="arch-card-title">Serveur FastAPI & NVML (<code>backend/</code>)</h3>
+                        <p class="arch-card-text">
+                            Streaming bidirectionnel WebSocket <code>/ws/agent</code>, endpoint ultra-rapide <code>/api/ping</code>, SSE <code>/api/models/pull</code>, base relationnelle SQLite WAL (<code>data/agency.db</code>) et télémétrie GPU lue en mémoire via <code>nvml.dll</code> sans jamais lancer <code>nvidia-smi.exe</code>.
+                        </p>
+                        <ul class="arch-specs">
+                            <li><span>Écoute :</span> 127.0.0.1:9099 (WebSocket)</li>
+                            <li><span>Mémoire :</span> SQLite WAL + Souvenirs</li>
+                            <li><span>Télémétrie :</span> ctypes nvml.dll (0 popup)</li>
+                        </ul>
+                    </div>
+
+                    <div class="arch-card">
+                        <div class="arch-card-icon">🖥️</div>
+                        <h3 class="arch-card-title">HUD Desktop Autonome (<code>app.py</code>)</h3>
+                        <p class="arch-card-text">
+                            Compilé en un exécutable unique <code>JarvisAgency.exe</code> (~204 Mo) avec PyInstaller et PyWebView WebView2 : démarrage séquentiel vérifiant <code>/api/ping</code> avant le CLR .NET, cache persistant dans <code>data/webview_cache</code> et mode docké 410 px ou plein écran.
+                        </p>
+                        <ul class="arch-specs">
+                            <li><span>Moteur :</span> Edge WebView2 (WinForms)</li>
+                            <li><span>Position :</span> SPI_GETWORKAREA + DPI clamp</li>
+                            <li><span>Poids :</span> ~204 Mo standalone</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="arch-flow-wrap">
+                    <h3 class="arch-flow-title">Flux d'exécution temps réel sans blocage</h3>
+                    <div class="arch-flow-grid">
+                        <div class="arch-node">
+                            <span class="arch-node-tag">1 • Interface HUD</span>
+                            <h4>app.py + frontend/</h4>
+                            <p>Le HUD OLED communique par WebSocket (<code>/ws/agent</code>) avec boutons compacts, Journal d'actions dépliable, modale <code>⚙️ Config</code> et bouton <code>STOP / ▶ Réarmer</code>.</p>
+                        </div>
+                        <div class="arch-node">
+                            <span class="arch-node-tag">2 • Orchestration</span>
+                            <h4>backend/ + core/</h4>
+                            <p><code>run_react_agent</code> alterne observation écran (si intention visuelle), inférence streaming et pause HITL avant toute action sensible ou critique.</p>
+                        </div>
+                        <div class="arch-node">
+                            <span class="arch-node-tag">3 • Modèles & OS</span>
+                            <h4>Ollama / LM Studio + Windows</h4>
+                            <p>Ollama pointe automatiquement sur <code>IA Local/models</code> (<code>CREATE_NO_WINDOW</code> seul), tandis que <code>vision/</code> et <code>tools/</code> agissent sur le bureau sans jamais ouvrir de terminal CMD.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="arch-grid">
-                <div class="arch-card">
-                    <div class="arch-card-icon">🧠</div>
-                    <h3 class="arch-card-title">Moteur d'Inférence Découplé</h3>
-                    <p class="arch-card-text">
-                        Compatible avec <strong>Ollama</strong> et <strong>Llama.cpp</strong>. Exploite directement les cœurs Tensor NVIDIA (CUDA) ou l'accélération AVX2 des processeurs modernes pour streamer à plus de <strong>60 tokens/seconde</strong> sans envoyer un seul octet sur Internet.
-                    </p>
-                    <ul class="arch-specs">
-                        <li><span>Format :</span> GGUF quantifié 4-bit / 8-bit</li>
-                        <li><span>Moteur :</span> Ollama API locale (port 11434)</li>
-                        <li><span>Confidentialité :</span> 100% hors-ligne</li>
-                    </ul>
-                </div>
-
-                <div class="arch-card">
-                    <div class="arch-card-icon">⚡</div>
-                    <h3 class="arch-card-title">Backend Asynchrone FastAPI & SSE</h3>
-                    <p class="arch-card-text">
-                        Noyau Python ultra-rapide gérant le <strong>Server-Sent Events (SSE)</strong>, la mémoire SQLite relationnelle persistante, les sessions multi-onglets, l'analyse de fichiers (PDF, CSV, PCAP, Code) et la télémétrie matérielle en direct (VRAM, Température, GPU Util).
-                    </p>
-                    <ul class="arch-specs">
-                        <li><span>Serveur :</span> FastAPI + Uvicorn</li>
-                        <li><span>Mémoire :</span> SQLite Vectoriel + Souvenirs</li>
-                        <li><span>Réseau :</span> Écoute <code>0.0.0.0:9099</code> (LAN ready)</li>
-                    </ul>
-                </div>
-
-                <div class="arch-card">
-                    <div class="arch-card-icon">🖥️</div>
-                    <h3 class="arch-card-title">Client Desktop Windows Autonome</h3>
-                    <p class="arch-card-text">
-                        Packagé avec <strong>PyInstaller</strong> et <strong>PyWebView</strong> en un exécutable standalone de 90 Mo. Zéro installation de Python requise sur la machine de destination : double-cliquez sur <code>JarvisAgency.exe</code> et le serveur démarre en tâche de fond avec interface native.
-                    </p>
-                    <ul class="arch-specs">
-                        <li><span>Moteur Web :</span> Microsoft WebView2 (Edge Chromium)</li>
-                        <li><span>Packaging :</span> Single-File .EXE sans installeur</li>
-                        <li><span>Poids :</span> Compact & optimisé</li>
-                    </ul>
-                </div>
-
-                <div class="arch-card">
-                    <div class="arch-card-icon">📱</div>
-                    <h3 class="arch-card-title">Écosystème Mobile Android & PWA</h3>
-                    <p class="arch-card-text">
-                        Accédez à votre IA locale depuis votre smartphone. Application native Android <strong>JarvisAgency.apk</strong> (90 Ko, signée v2/v3) avec mémorisation de l'IP du PC, support du micro vocal et interface responsive optimisée OLED noir.
-                    </p>
-                    <ul class="arch-specs">
-                        <li><span>APK :</span> WebView Native matérielle accélérée</li>
-                        <li><span>PWA :</span> Installable en 1 clic via Chrome</li>
-                        <li><span>Connexion :</span> Wi-Fi local avec QR Code</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
     </main>
 
     <nav class="pager" aria-label="Navigation entre les pages">
@@ -134,10 +181,10 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="brand-logo-wrap">
-                        <img src="assets/logo.png" alt="Jarvis Agency Logo" class="brand-logo-img">
+                        <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
                     </div>
-                    <span class="brand-name">Jarvis<span class="text-accent">Agency</span></span>
-                    <p class="footer-tagline">Studio Multi-Agents IA 100% Local, Privé et Déployable. Conçu avec passion par Ayoub pour la communauté et le BTS SIO SISR.</p>
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <p class="footer-tagline">Agent OS Windows 100 % Local, Multimodal et Sécurisé par validation humaine. Conçu par Ayoub sous licence MIT.</p>
                 </div>
 
                 <div class="footer-links-group">
@@ -146,25 +193,25 @@
                         <a href="vision.html">Vision</a>
                         <a href="architecture.html">Architecture</a>
                         <a href="materiel.html">Modèles & GPU</a>
-                        <a href="agents.html">Agents</a>
+                        <a href="outils.html">17 Outils & HITL</a>
                     </div>
                     <div class="footer-col">
-                        <h4>Téléchargements</h4>
+                        <h4>Déploiement</h4>
                         <a href="installation.html">JarvisAgency.exe</a>
-                        <a href="downloads/JarvisAgency.apk" download>JarvisAgency.apk</a>
-                        <a href="installation.html">Script PowerShell</a>
+                        <a href="outils.html#env-config">Générateur .env</a>
+                        <a href="installation.html">Sources & Build</a>
                     </div>
                     <div class="footer-col">
                         <h4>Open Source</h4>
                         <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
                         <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
-                        <a href="https://github.com" target="_blank" rel="noopener">Licence MIT</a>
+                        <a href="LICENSE" target="_blank" rel="noopener">Licence MIT</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 Jarvis Agency • Open Source sous licence MIT • Vos données restent sur votre ordinateur.</p>
+                <p>© 2026 J.A.R.V.I.S. Agent OS Local • Open Source sous licence MIT • Vos captures et données restent sur votre PC.</p>
                 <div class="footer-meta-badges">
                     <span class="badge-mini">⚡ 100% Hors-Ligne</span>
                     <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>

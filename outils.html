@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outils & Sécurité HITL — J.A.R.V.I.S. Agent OS Local</title>
+    <meta name="description" content="La boucle ReAct, les 17 outils modulaires de J.A.R.V.I.S. Agent OS, les 4 niveaux de sécurité HITL et le générateur interactif de configuration .env.">
+    <meta name="theme-color" content="#1C1C20">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-center"></div>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-link">
+                <div class="brand-logo-wrap">
+                    <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <span class="brand-badge">v3.0 Local</span>
+                </div>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Navigation principale">
+                <a href="vision.html" class="nav-item">Vision</a>
+                <a href="architecture.html" class="nav-item">Architecture</a>
+                <a href="materiel.html" class="nav-item">Modèles & Matériel</a>
+                <a href="outils.html" class="nav-item" aria-current="page">Outils & Sécurité</a>
+                <a href="installation.html" class="nav-item">Installation</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="installation.html" class="btn-header-cta"><span>⚡ Déployer</span></a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+
+            <button type="button" class="mobile-toggle" id="btnMobileToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
+            <a href="vision.html" class="mobile-nav-item">Vision</a>
+            <a href="architecture.html" class="mobile-nav-item">Architecture</a>
+            <a href="materiel.html" class="mobile-nav-item">Modèles & Matériel</a>
+            <a href="outils.html" class="mobile-nav-item" aria-current="page">Outils & Sécurité</a>
+            <a href="installation.html" class="mobile-nav-item">Installation</a>
+            <a href="installation.html" class="mobile-nav-cta">⚡ Déployer</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-block page-first" id="outils">
+            <div class="section-container">
+                <div class="section-head text-center">
+                    <div class="subhead-pill">🛠️ Boucle ReAct • 17 Outils • HITL</div>
+                    <h2 class="section-title">Ce que J.A.R.V.I.S. sait voir et exécuter</h2>
+                    <p class="section-desc">Au lieu de choisir un persona figé, J.A.R.V.I.S. orchestre 17 outils système, bureau, web et macros dans une boucle asynchrone encadrée par quatre niveaux de sécurité.</p>
+                </div>
+
+                <!-- 4-STEP REACT PIPELINE -->
+                <div class="react-pipeline">
+                    <div class="react-step-card">
+                        <span class="react-step-num">01 • Observation</span>
+                        <h3>mss + UI Automation</h3>
+                        <p>Capture l'écran actif sans le HUD (<code>WDA</code>) et extrait les contrôles cliquables de la fenêtre cible uniquement si une action visuelle est nécessaire.</p>
+                    </div>
+                    <div class="react-step-card">
+                        <span class="react-step-num">02 • Réflexion</span>
+                        <h3>LLM Local OpenAI-compat</h3>
+                        <p>Le modèle (<code>qwen2.5:7b</code> ou <code>qwen2.5vl:7b</code>) décide quel outil appeler en JSON ou formule une réponse concise sans jargon technique.</p>
+                    </div>
+                    <div class="react-step-card">
+                        <span class="react-step-num">03 • Action & HITL</span>
+                        <h3>Validation Humaine</h3>
+                        <p>Toute action sensible ou critique met la boucle en pause et affiche une bannière <strong>Autoriser / Refuser</strong> avant exécution.</p>
+                    </div>
+                    <div class="react-step-card">
+                        <span class="react-step-num">04 • Vérification</span>
+                        <h3>Contrôle Post-Action</h3>
+                        <p>Après un clic ou lancement graphique, vérifie le nouvel état de l'écran et conclut naturellement en 1 à 2 phrases en français.</p>
+                    </div>
+                </div>
+
+                <!-- INTERACTIVE 17 TOOLS CATALOG -->
+                <div class="configurator-wrapper">
+                    <div class="configurator-controls">
+                        <div class="config-filter-label">Filtrer par module ou niveau de risque :</div>
+                        <div class="profile-chips-group">
+                            <button type="button" class="profile-chip active" data-filter="all">Tous les outils (17)</button>
+                            <button type="button" class="profile-chip" data-filter="desktop">Desktop & Vision (5)</button>
+                            <button type="button" class="profile-chip" data-filter="system">Système & Fichiers (4)</button>
+                            <button type="button" class="profile-chip" data-filter="web">Web Playwright & Search (5)</button>
+                            <button type="button" class="profile-chip" data-filter="macros">Macros JSON (3)</button>
+                        </div>
+                    </div>
+
+                    <div class="agents-roster-grid" id="toolsCatalogGrid">
+                        <!-- DESKTOP & VISION -->
+                        <div class="agent-card" data-category="desktop" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">👁️</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">observe_screen</h4>
+                                    <span class="agent-role">desktop_tool.py • Capture & UIA</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Capture l'écran via <code>mss</code> (&lt; 30 ms) avec exclusion WDA et extrait jusqu'à 45 boutons UIA et leurs coordonnées exactes.</p>
+                            <div class="agent-cat-tag strategy">Desktop & Vision</div>
+                        </div>
+
+                        <div class="agent-card" data-category="desktop" data-risk="sensitive">
+                            <div class="card-top">
+                                <span class="agent-avatar">🖱️</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">mouse_click</h4>
+                                    <span class="agent-role">desktop_tool.py • Clic coordonné</span>
+                                </div>
+                                <span class="risk-badge sensitive">Sensible</span>
+                            </div>
+                            <p class="agent-description">Convertit les coordonnées image ou écran, masque le HUD si chevauchement et effectue un clic gauche, droit ou double.</p>
+                            <div class="agent-cat-tag strategy">Desktop & Vision</div>
+                        </div>
+
+                        <div class="agent-card" data-category="desktop" data-risk="sensitive">
+                            <div class="card-top">
+                                <span class="agent-avatar">⌨️</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">type_text</h4>
+                                    <span class="agent-role">desktop_tool.py • Saisie UTF-8</span>
+                                </div>
+                                <span class="risk-badge sensitive">Sensible</span>
+                            </div>
+                            <p class="agent-description">Saisit du texte avec gestion complète des accents français (via presse-papier temporaire préservé) et touche Entrée optionnelle.</p>
+                            <div class="agent-cat-tag strategy">Desktop & Vision</div>
+                        </div>
+
+                        <div class="agent-card" data-category="desktop" data-risk="sensitive">
+                            <div class="card-top">
+                                <span class="agent-avatar">🔀</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">press_hotkey</h4>
+                                    <span class="agent-role">desktop_tool.py • Raccourcis OS</span>
+                                </div>
+                                <span class="risk-badge sensitive">Sensible</span>
+                            </div>
+                            <p class="agent-description">Déclenche toute combinaison clavier Windows (<code>['ctrl', 's']</code>, <code>['alt', 'tab']</code>, <code>['win', 'd']</code>) via <code>pyautogui</code>.</p>
+                            <div class="agent-cat-tag strategy">Desktop & Vision</div>
+                        </div>
+
+                        <div class="agent-card" data-category="desktop" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">↕️</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">scroll_screen</h4>
+                                    <span class="agent-role">desktop_tool.py • Molette</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Fait défiler la fenêtre active vers le haut ou vers le bas pour explorer un document, une page ou un menu long.</p>
+                            <div class="agent-cat-tag strategy">Desktop & Vision</div>
+                        </div>
+
+                        <!-- SYSTEME & FICHIERS -->
+                        <div class="agent-card" data-category="system" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">🚀</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">open_application</h4>
+                                    <span class="agent-role">system_tool.py • Lanceur Windows</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Résout automatiquement les raccourcis <code>.lnk</code> et <code>.exe</code> du Bureau, Menu Démarrer et PATH (Packet Tracer, VirtualBox, VS Code...).</p>
+                            <div class="agent-cat-tag network">Système & Fichiers</div>
+                        </div>
+
+                        <div class="agent-card" data-category="system" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">🔗</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">open_url</h4>
+                                    <span class="agent-role">system_tool.py • Navigateur défaut</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Ouvre directement une adresse web dans le navigateur Windows par défaut en conservant vos sessions et extensions.</p>
+                            <div class="agent-cat-tag network">Système & Fichiers</div>
+                        </div>
+
+                        <div class="agent-card" data-category="system" data-risk="critical">
+                            <div class="card-top">
+                                <span class="agent-avatar">💻</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">run_terminal_command</h4>
+                                    <span class="agent-role">system_tool.py • PowerShell caché</span>
+                                </div>
+                                <span class="risk-badge critical">HITL / Critique</span>
+                            </div>
+                            <p class="agent-description">Exécute PowerShell silencieusement (<code>CREATE_NO_WINDOW</code>) : lecture seule autorisée, écriture/suppression bloquées sans approbation.</p>
+                            <div class="agent-cat-tag cyber">Système & Fichiers</div>
+                        </div>
+
+                        <div class="agent-card" data-category="system" data-risk="critical">
+                            <div class="card-top">
+                                <span class="agent-avatar">📁</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">file_operation</h4>
+                                    <span class="agent-role">system_tool.py • CRUD Local</span>
+                                </div>
+                                <span class="risk-badge critical">HITL / Critique</span>
+                            </div>
+                            <p class="agent-description">Lit, liste, écrit ou supprime des fichiers locaux. Toute suppression définitive ou écriture système requiert une validation humaine.</p>
+                            <div class="agent-cat-tag cyber">Système & Fichiers</div>
+                        </div>
+
+                        <!-- WEB PLAYWRIGHT & SEARCH -->
+                        <div class="agent-card" data-category="web" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">🌐</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">browser_navigate</h4>
+                                    <span class="agent-role">browser_tool.py • Playwright / CDP</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Charge une page dans Playwright Chromium ou se connecte au Chrome déjà ouvert de l'utilisateur via <code>CHROME_CDP_URL</code>.</p>
+                            <div class="agent-cat-tag dev">Web & Recherche</div>
+                        </div>
+
+                        <div class="agent-card" data-category="web" data-risk="sensitive">
+                            <div class="card-top">
+                                <span class="agent-avatar">🎯</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">browser_click</h4>
+                                    <span class="agent-role">browser_tool.py • Clic DOM</span>
+                                </div>
+                                <span class="risk-badge sensitive">Sensible</span>
+                            </div>
+                            <p class="agent-description">Clique avec précision sur un sélecteur CSS ou un texte (<code>text=...</code>) dans la page web automatisée active.</p>
+                            <div class="agent-cat-tag dev">Web & Recherche</div>
+                        </div>
+
+                        <div class="agent-card" data-category="web" data-risk="sensitive">
+                            <div class="card-top">
+                                <span class="agent-avatar">📝</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">browser_type</h4>
+                                    <span class="agent-role">browser_tool.py • Formulaire DOM</span>
+                                </div>
+                                <span class="risk-badge sensitive">Sensible</span>
+                            </div>
+                            <p class="agent-description">Remplit un champ web par son sélecteur et soumet le formulaire optionnellement après chargement DOM complet.</p>
+                            <div class="agent-cat-tag dev">Web & Recherche</div>
+                        </div>
+
+                        <div class="agent-card" data-category="web" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">📄</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">browser_extract_text</h4>
+                                    <span class="agent-role">browser_tool.py • Lecture DOM</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Extrait proprement le texte visible d'une page web (jusqu'à 12 000 caractères) pour le résumer localement.</p>
+                            <div class="agent-cat-tag dev">Web & Recherche</div>
+                        </div>
+
+                        <div class="agent-card" data-category="web" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">🔎</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">web_search</h4>
+                                    <span class="agent-role">browser_tool.py • DuckDuckGo ddgs</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Effectue une recherche web rapide sans ouvrir de fenêtre de navigateur et retourne titres, URLs et extraits en français.</p>
+                            <div class="agent-cat-tag dev">Web & Recherche</div>
+                        </div>
+
+                        <!-- MACROS -->
+                        <div class="agent-card" data-category="macros" data-risk="safe">
+                            <div class="card-top">
+                                <span class="agent-avatar">📋</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">list_macros</h4>
+                                    <span class="agent-role">macros_tool.py • data/macros.json</span>
+                                </div>
+                                <span class="risk-badge safe">Safe</span>
+                            </div>
+                            <p class="agent-description">Liste les scénarios enregistrés (ex. <code>prepare_dev_env</code>, <code>workspace_overview</code>) et le détail de leurs étapes.</p>
+                            <div class="agent-cat-tag data">Macros JSON</div>
+                        </div>
+
+                        <div class="agent-card" data-category="macros" data-risk="sensitive">
+                            <div class="card-top">
+                                <span class="agent-avatar">➕</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">create_macro</h4>
+                                    <span class="agent-role">macros_tool.py • Nouveau scénario</span>
+                                </div>
+                                <span class="risk-badge sensitive">Sensible</span>
+                            </div>
+                            <p class="agent-description">Enregistre une routine réutilisable enchaînant plusieurs outils dans <code>data/macros.json</code> pour les lancer d'une phrase.</p>
+                            <div class="agent-cat-tag data">Macros JSON</div>
+                        </div>
+
+                        <div class="agent-card" data-category="macros" data-risk="sensitive">
+                            <div class="card-top">
+                                <span class="agent-avatar">▶️</span>
+                                <div class="agent-ident">
+                                    <h4 class="agent-name">run_macro</h4>
+                                    <span class="agent-role">macros_tool.py • Exécution gardée</span>
+                                </div>
+                                <span class="risk-badge sensitive">Sensible</span>
+                            </div>
+                            <p class="agent-description">Exécute séquentiellement les étapes d'une macro en bloquant automatiquement toute sous-étape jugée critique par <code>safety.py</code>.</p>
+                            <div class="agent-cat-tag data">Macros JSON</div>
+                        </div>
+                    </div>
+
+                    <div class="config-summary-bar">
+                        <div class="summary-count">
+                            <span id="activeToolsCount">17</span> outil(s) affiché(s) dans le registre Agent OS
+                        </div>
+                        <div class="summary-actions">
+                            <span class="badge-mini">Kill Switch Global : Ctrl+Shift+X</span>
+                            <span class="badge-mini">FailSafe : Souris coin écran</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIVE .ENV & PERMISSION MODE CONFIGURATOR -->
+                <div class="env-builder-section" id="env-config">
+                    <div class="section-head text-center" style="margin-bottom:34px;">
+                        <div class="subhead-pill">⚙️ Générateur .env & Sécurité HITL</div>
+                        <h2 class="section-title">Composez votre fichier <code>.env</code></h2>
+                        <p class="section-desc">Personnalisez le fournisseur LLM, les modèles Fast/Vision, le niveau d'autorisation HITL et le comportement du HUD, puis téléchargez le fichier prêt à placer à côté de <code>JarvisAgency.exe</code>.</p>
+                    </div>
+
+                    <div class="env-builder-grid">
+                        <div class="env-form-card">
+                            <h3 class="env-form-title">Paramètres Agent OS Local</h3>
+                            <p class="env-form-sub">Chaque option correspond exactement aux clés lues par <code>core/config.py</code> et la modale <code>⚙️ Config</code>.</p>
+
+                            <div class="env-field-grid">
+                                <div class="env-field">
+                                    <label for="envProvider">LLM_PROVIDER</label>
+                                    <select id="envProvider" class="env-select">
+                                        <option value="ollama" selected>Ollama (127.0.0.1:11434/v1)</option>
+                                        <option value="lmstudio">LM Studio (127.0.0.1:1234/v1)</option>
+                                    </select>
+                                </div>
+
+                                <div class="env-field">
+                                    <label for="envPermMode">PERMISSION_MODE (HITL)</label>
+                                    <select id="envPermMode" class="env-select">
+                                        <option value="default" selected>Équilibré (HITL sur écriture / shell / Entrée)</option>
+                                        <option value="request_review">Validation Totale (confirmer chaque action)</option>
+                                        <option value="auto">Autonome Sécurisé (bloque suppressions critiques)</option>
+                                        <option value="turbo">Turbo (fluide, critique protégé)</option>
+                                    </select>
+                                </div>
+
+                                <div class="env-field">
+                                    <label for="envFastModel">FAST_MODEL</label>
+                                    <input type="text" id="envFastModel" class="env-input" value="qwen2.5:7b">
+                                </div>
+
+                                <div class="env-field">
+                                    <label for="envVisionModel">VISION_MODEL</label>
+                                    <input type="text" id="envVisionModel" class="env-input" value="qwen2.5vl:7b">
+                                </div>
+
+                                <div class="env-field">
+                                    <label for="envTts">TTS_ENGINE</label>
+                                    <select id="envTts" class="env-select">
+                                        <option value="auto" selected>Auto local (Piper → Windows SAPI5)</option>
+                                        <option value="piper">Piper ONNX uniquement</option>
+                                        <option value="pyttsx3">Windows SAPI5 (Hortense FR)</option>
+                                        <option value="edge">Edge-TTS en ligne (optionnel)</option>
+                                    </select>
+                                </div>
+
+                                <div class="env-field">
+                                    <label for="envCdp">CHROME_CDP_URL (Optionnel)</label>
+                                    <input type="text" id="envCdp" class="env-input" placeholder="http://127.0.0.1:9222">
+                                </div>
+                            </div>
+
+                            <div class="env-checks">
+                                <label class="env-check">
+                                    <input type="checkbox" id="envHideHud" checked>
+                                    <span><code>HUD_HIDE_DURING_ACTION</code> — Masquer brièvement le HUD lors des clics/captures</span>
+                                </label>
+                                <label class="env-check">
+                                    <input type="checkbox" id="envTopHud">
+                                    <span><code>HUD_ALWAYS_ON_TOP</code> — Garder le HUD épinglé au premier plan au lancement</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="env-preview-card">
+                            <h3 class="env-form-title">Aperçu du fichier <code>.env</code></h3>
+                            <p class="env-form-sub">À placer dans <code>IA Local/.env</code> ou modifier directement dans l'interface <code>⚙️ Config</code>.</p>
+                            <div class="env-code-output">
+                                <pre><code id="envPreviewCode"></code></pre>
+                            </div>
+                            <div class="env-actions-row">
+                                <button type="button" class="btn-export-config" id="btnDownloadEnv">📥 Télécharger <code>.env</code></button>
+                                <button type="button" class="btn-export-config" id="btnCopyEnv">📋 Copier .env</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="pager" aria-label="Navigation entre les pages">
+        <div class="pager-inner"><a href="materiel.html" class="pager-link prev"><small>Page précédente</small><span>← Modèles & Matériel</span></a><a href="installation.html" class="pager-link next"><small>Page suivante</small><span>Installation →</span></a></div>
+    </nav>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-wrap">
+                        <img src="assets/logo.png" alt="Logo J.A.R.V.I.S. Agent OS" class="brand-logo-img">
+                    </div>
+                    <span class="brand-name">J.A.R.V.I.S.<span class="text-accent">OS</span></span>
+                    <p class="footer-tagline">Agent OS Windows 100 % Local, Multimodal et Sécurisé par validation humaine. Conçu par Ayoub sous licence MIT.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Projet</h4>
+                        <a href="vision.html">Vision</a>
+                        <a href="architecture.html">Architecture</a>
+                        <a href="materiel.html">Modèles & GPU</a>
+                        <a href="outils.html">17 Outils & HITL</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Déploiement</h4>
+                        <a href="installation.html">JarvisAgency.exe</a>
+                        <a href="outils.html#env-config">Générateur .env</a>
+                        <a href="installation.html">Sources & Build</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Open Source</h4>
+                        <a href="https://github.com" target="_blank" rel="noopener">Dépôt GitHub</a>
+                        <a href="https://github.com" target="_blank" rel="noopener">Signaler un bug</a>
+                        <a href="LICENSE" target="_blank" rel="noopener">Licence MIT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 J.A.R.V.I.S. Agent OS Local • Open Source sous licence MIT • Vos captures et données restent sur votre PC.</p>
+                <div class="footer-meta-badges">
+                    <span class="badge-mini">⚡ 100% Hors-Ligne</span>
+                    <span class="badge-mini">🛡️ Zéro Télémétrie Cloud</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
